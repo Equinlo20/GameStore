@@ -18,11 +18,6 @@ import javafx.scene.layout.VBox;
 import org.openjfx.gamestore.models.domain.Purchase;
 import org.openjfx.gamestore.utils.Utilities;
 
-/**
- * FXML Controller class
- *
- * @author PINEDA
- */
 public class Shopping_historyController implements Initializable {
 
     @FXML
@@ -31,9 +26,6 @@ public class Shopping_historyController implements Initializable {
     @FXML
     private VBox purchasePaneTable;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         loadPurchases();

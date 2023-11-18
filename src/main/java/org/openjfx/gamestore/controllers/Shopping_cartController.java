@@ -11,11 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
-/**
- * FXML Controller class
- *
- * @author PINEDA
- */
+
 public class Shopping_cartController implements Initializable {
 
     @FXML
@@ -23,9 +19,6 @@ public class Shopping_cartController implements Initializable {
     @FXML
     private VBox itemsPaneTable;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

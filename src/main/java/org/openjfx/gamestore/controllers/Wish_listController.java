@@ -26,11 +26,6 @@ import org.openjfx.gamestore.utils.MyListener;
 
 import org.openjfx.gamestore.utils.Utilities;
 
-/**
- * FXML Controller class
- *
- * @author PINEDA
- */
 public class Wish_listController implements Initializable {
 
     @FXML
@@ -61,9 +56,6 @@ public class Wish_listController implements Initializable {
     
     private MyListener myListener;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         loadItems();

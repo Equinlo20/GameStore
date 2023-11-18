@@ -15,10 +15,6 @@ import javafx.scene.Scene;
 import javafx.util.Duration;
 import org.openjfx.gamestore.App;
 
-/**
- *
- * @author PINEDA
- */
 public class Utilities {
     public static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("views/" + fxml + ".fxml"));

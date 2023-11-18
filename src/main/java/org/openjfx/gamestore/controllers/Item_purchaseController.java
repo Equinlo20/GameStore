@@ -11,11 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import org.openjfx.gamestore.models.domain.Purchase;
 
-/**
- * FXML Controller class
- *
- * @author PINEDA
- */
+
 public class Item_purchaseController implements Initializable {
     
     @FXML

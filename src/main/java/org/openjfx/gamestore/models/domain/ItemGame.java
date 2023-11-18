@@ -4,10 +4,6 @@
  */
 package org.openjfx.gamestore.models.domain;
 
-/**
- *
- * @author PINEDA
- */
 public class ItemGame {
     
     private String name;

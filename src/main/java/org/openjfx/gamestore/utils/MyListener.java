@@ -6,10 +6,6 @@ package org.openjfx.gamestore.utils;
 
 import org.openjfx.gamestore.models.domain.ItemGame;
 
-/**
- *
- * @author PINEDA
- */
 public interface MyListener {
     public void onClickListener(ItemGame item);
 }

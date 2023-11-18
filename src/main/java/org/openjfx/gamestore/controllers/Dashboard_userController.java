@@ -20,11 +20,7 @@ import javafx.util.Duration;
 import org.openjfx.gamestore.App;
 import org.openjfx.gamestore.utils.Utilities;
 
-/**
- * FXML Controller class
- *
- * @author PINEDA
- */
+
 public class Dashboard_userController implements Initializable {
 
     private double xOffset = 0;
