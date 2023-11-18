@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" onMousePressed="#click" prefHeight="225.0" prefWidth="200.0" stylesheets="@styles/item.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.gamestore.controllers.ItemController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="38.0" layoutY="13.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="nameItemLabel" alignment="CENTER" prefHeight="39.0" prefWidth="98.0" text="Name Product" textFill="#828282">
+                     <font>
+                        <Font name="Impact" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="priceItemLabel" alignment="CENTER" prefHeight="39.0" prefWidth="73.0" text="\$0000000" textFill="#828282">
+                     <font>
+                        <Font name="Impact" size="12.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <ImageView fx:id="imageItemLabel" fitHeight="170.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../images/game1.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+   </children>
+   <styleClass>
+      <String fx:value="game-item" />
+      <String fx:value="shadow" />
+   </styleClass>
+</AnchorPane>

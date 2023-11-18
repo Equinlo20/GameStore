@@ -1,0 +1,57 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.parent {
+    -fx-background-color: white;
+}
+
+.top-bar{
+    -fx-background-color: linear-gradient(to bottom left, #00F260, #0575E6);
+}
+
+.side-bar{
+    -fx-background-color: linear-gradient(to bottom right, #0575E6, #00F260);
+}
+
+.menu-buttoms{
+    -fx-text-fill: #545454;
+}
+
+.menu-buttoms:hover{
+    -fx-background-color:#FFF;
+}
+
+.menu-buttom-icon{
+    -fx-fill: #545454;
+}
+
+.menu-buttom-icon:hover{
+    -fx-fill: #FFF;
+}
+
+.menu-buttom-icon:pressed{
+    -fx-effect:  dropshadow(three-pass-box, rgba(0,0,0,1.0), 10, 0, 0, 0);
+}
+/**/
+.menu-buttom-icon-hover{
+    -fx-background-color:#FFF;
+}
+
+.menu-buttoms-hover{
+    -fx-fill: #FFF;
+}
+/**/    
+.close-buttom-icon{
+    -fx-fill: #545454;
+}
+
+.close-buttom-icon:hover{
+    -fx-fill: red;
+}
+
+.close-buttom-icon:pressed{
+    -fx-effect:  dropshadow(three-pass-box, rgba(0,0,0,1.0), 10, 0, 0, 0);
+}
+
+

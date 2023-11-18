@@ -1,0 +1,100 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.parent {
+    -fx-background-color: #EDEDED;
+}
+
+.search-box{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 30;
+}
+
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+.btn-search{
+    -fx-fill:#545454;
+}
+
+.btn-search:hover{
+    -fx-effect:  dropshadow(three-pass-box, rgba(154,205,55,0.7), 10, 0, 0, 0);
+}
+
+.btn-search:pressed{
+    -fx-effect:  dropshadow(three-pass-box, rgba(0,0,0,1.0), 10, 0, 0, 0);
+}
+
+.rigth-bar{
+    -fx-background-color:#D3D3D3;
+}
+
+.shadow{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10.0, 0.0, 0.0, 10.0);
+}
+
+.chosen-game-card{
+    -fx-background-color: linear-gradient(to bottom left, #00F260, #0575E6);
+    -fx-background-radius: 20;
+}
+
+.comboBox{
+    -fx-background-color: rgba(239, 239, 239, 0.3);
+    -fx-background-radius: 30;
+}
+
+.bt-add-cart{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 100;
+}
+
+.bt-add-cart:pressed{
+    -fx-effect: dropshadow(three-pass-box, rgba(213, 255, 230, 0.1), 10.0, 0.0, 0.0, 10.0);
+}
+
+.card-top{
+    -fx-background-color: #D3D3D3;
+    -fx-background-radius: 30;
+}
+
+.card-top:hover{
+    -fx-background-color: linear-gradient(to bottom left, #00F260, #0575E6);
+    -fx-background-radius: 30;
+}
+
+.card-top:pressed{
+    -fx-effect: dropshadow(three-pass-box, rgba(173, 173, 173, 0.1), 10.0, 0.0, 0.0, 10.0);
+}
+
+.card-top:hover #labeltopwish1, .card-top:hover #labeltopwish2,
+.card-top:hover #labeltopcart1, .card-top:hover #labeltopcart2{
+        -fx-text-fill:#ffffff;
+}
+
+.btn-add-wish-list{
+    -fx-fill:#545454;
+}
+
+.btn-add-wish-list:hover{
+    -fx-fill: #fc0000;
+    -fx-effect:  dropshadow(three-pass-box, rgba(154,205,55,0.7), 10, 0, 0, 0);
+}
+
+.btn-add-wish-list:pressed{
+    -fx-effect:  dropshadow(three-pass-box, rgba(0,0,0,1.0), 10, 0, 0, 0);
+}
+
+.btn-cart-top{
+    -fx-fill:#545454;
+}
+
+.btn-cart-top:hover{
+    -fx-fill: #ffffff;
+    -fx-effect:  dropshadow(three-pass-box, rgba(154,205,55,0.7), 10, 0, 0, 0);
+}
+
+.btn-cart-top:pressed{
+    -fx-effect:  dropshadow(three-pass-box, rgba(0,0,0,1.0), 10, 0, 0, 0);
+}

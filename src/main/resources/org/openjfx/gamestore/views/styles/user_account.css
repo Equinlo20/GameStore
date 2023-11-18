@@ -1,0 +1,58 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.pane-left{
+    -fx-background-color:#D3D3D3;
+}
+
+.btn-save-changes{
+    -fx-background-color: #DFDFDF;
+    -fx-background-radius: 30;
+}
+
+.btn-save-changes:hover{
+    -fx-background-color: linear-gradient(to bottom left, #E7E7E7, #FFFFFF);
+}
+.btn-save-changes:pressed{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10.0, 0.0, 0.0, 10.0);
+}
+.pane-center{
+    /*-fx-background-color:#999999;*/
+    -fx-background-color: linear-gradient(to bottom left, #00F260, #0575E6);
+}
+
+.text-field-input{
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: white;
+    -fx-text-fill: white;
+}
+
+.datepicker-input{
+    -fx-control-inner-background: transparent;
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-border-width: 0 0 1 0;
+}
+
+.shadow{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10.0, 0.0, 0.0, 10.0);
+}
+
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+.btn-edit{
+    -fx-fill:#000000;
+}
+
+.btn-edit:hover{
+    -fx-fill: #ffffff;
+    -fx-effect:  dropshadow(three-pass-box, rgba(154,205,55,0.7), 10, 0, 0, 0);
+}
+
+.btn-edit:pressed{
+    -fx-effect:  dropshadow(three-pass-box, rgba(0,0,0,1.0), 10, 0, 0, 0);
+}

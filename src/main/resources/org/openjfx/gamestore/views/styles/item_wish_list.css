@@ -1,0 +1,41 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+
+.game-item{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 30;
+}
+
+.game-item:hover{
+    -fx-background-color: linear-gradient(to bottom left, #00F260, #0575E6);
+    -fx-background-radius: 30;
+}
+
+.game-item:pressed{
+    -fx-effect: dropshadow(three-pass-box, rgba(213, 255, 230, 0.1), 10.0, 0.0, 0.0, 10.0);
+}
+
+.shadow{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10.0, 0.0, 0.0, 10.0);
+}
+
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+.btn-delete{
+    -fx-fill:red;
+}
+
+.btn-delete:hover{
+    -fx-effect:  dropshadow(three-pass-box, rgba(154,205,55,0.7), 10, 0, 0, 0);
+}
+
+.btn-delete:pressed{
+    -fx-effect:  dropshadow(three-pass-box, rgba(0,0,0,1.0), 10, 0, 0, 0);
+}

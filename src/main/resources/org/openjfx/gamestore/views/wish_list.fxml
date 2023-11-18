@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="654.0" prefWidth="1056.0" styleClass="parent" stylesheets="@styles/wish_list.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.gamestore.controllers.Wish_listController">
+   <children>
+      <BorderPane layoutX="43.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@styles/catalogo_producos.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox prefHeight="200.0" prefWidth="356.0" styleClass="rigth-bar" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="90.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="95.0" fitWidth="95.0" pickOnBounds="true" smooth="false">
+                           <image>
+                              <Image url="@../../../../images/logo_negro.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="295.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                     <children>
+                        <TextField focusTraversable="false" prefHeight="40.0" prefWidth="235.0" promptText="Type here to search" styleClass="transparent">
+                           <HBox.margin>
+                              <Insets left="8.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Ebrima" size="18.0" />
+                           </font>
+                        </TextField>
+                        <Button mnemonicParsing="false" styleClass="transparent">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="SEARCH" size="2em" styleClass="btn-search" text="" />
+                           </graphic>
+                        </Button>
+                     </children>
+                     <styleClass>
+                        <String fx:value="search-box" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                  </HBox>
+                  <VBox fx:id="gameCard" alignment="CENTER" prefHeight="465.0" prefWidth="295.0">
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" top="15.0" />
+                     </VBox.margin>
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="42.0" prefWidth="295.0">
+                           <children>
+                              <Label fx:id="nameGameLabel" alignment="CENTER" prefHeight="39.0" prefWidth="195.0" text="Name Product" textFill="WHITE">
+                                 <font>
+                                    <Font name="Impact" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="priceGameLabel" alignment="CENTER" prefHeight="39.0" prefWidth="86.0" text="\$3.555555" textFill="WHITE">
+                                 <font>
+                                    <Font name="Ebrima" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <ImageView fx:id="gameImage" fitHeight="180.0" fitWidth="265.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../images/game1.jpg" />
+                           </image>
+                        </ImageView>
+                        <HBox alignment="CENTER" prefHeight="37.0" prefWidth="295.0">
+                           <children>
+                              <Label prefHeight="34.0" prefWidth="82.0" text="Description:" textFill="WHITE">
+                                 <font>
+                                    <Font name="Impact" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="descriptionGameLabel" prefHeight="34.0" prefWidth="198.0" text="loremp ipsum loremp ipsum " textFill="WHITE">
+                                 <font>
+                                    <Font name="Ebrima" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="24.0" prefWidth="295.0">
+                           <children>
+                              <Label prefHeight="26.0" prefWidth="78.0" text="Type:" textFill="WHITE">
+                                 <font>
+                                    <Font name="Impact" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="typeGameLabel" prefHeight="26.0" prefWidth="198.0" text="war" textFill="WHITE">
+                                 <font>
+                                    <Font name="Ebrima" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="25.0" prefWidth="295.0">
+                           <children>
+                              <Label prefHeight="27.0" prefWidth="77.0" text="Created by:" textFill="WHITE">
+                                 <font>
+                                    <Font name="Impact" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="createdByGameLabel" prefHeight="27.0" prefWidth="198.0" text="war" textFill="WHITE">
+                                 <font>
+                                    <Font name="Ebrima" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="26.0" prefWidth="295.0">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="92.0" text="Suggested age:" textFill="WHITE">
+                                 <font>
+                                    <Font name="Impact" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="SugAgeGameLabel" prefHeight="30.0" prefWidth="186.0" text="war" textFill="WHITE">
+                                 <font>
+                                    <Font name="Ebrima" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="20.0" prefWidth="295.0">
+                           <children>
+                              <Separator prefHeight="0.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="24.0" prefWidth="295.0">
+                           <children>
+                              <Label prefHeight="27.0" prefWidth="78.0" text="Amount" textFill="WHITE">
+                                 <font>
+                                    <Font name="Impact" size="14.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox prefHeight="27.0" prefWidth="85.0" promptText="1">
+                                 <styleClass>
+                                    <String fx:value="transparent" />
+                                    <String fx:value="comboBox" />
+                                 </styleClass>
+                              </ComboBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="3.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="32.0" prefWidth="295.0">
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="240.0" styleClass="bt-add-cart" text="Add to Cart" textFill="#828282">
+                                 <font>
+                                    <Font name="Impact" size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                     <styleClass>
+                        <String fx:value="chosen-game-card" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                  </VBox>
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" styleClass="white-pane" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label id="labeltopcart1" alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="106.0" text="My Wish List" textFill="#828282">
+                           <font>
+                              <Font name="Impact" size="18.0" />
+                           </font>
+                        </Label>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="329.0" styleClass="card-top">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="100.0" prefWidth="185.0">
+                                 <children>
+                                    <Label id="labeltopcart1" alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="195.0" text="CART" textFill="#828282">
+                                       <font>
+                                          <Font name="Impact" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label id="labeltopcart2" alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="195.0" text="0 Items" textFill="#828282">
+                                       <font>
+                                          <Font name="Impact" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <FontAwesomeIconView glyphName="CART_PLUS" size="7em" styleClass="btn-cart-top" />
+                           </children>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </HBox>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="white-pane" VBox.vgrow="ALWAYS">
+                     <children>
+                        <ScrollPane fx:id="scroll" prefHeight="544.0" prefWidth="660.0" styleClass="white-pane">
+                           <content>
+                              <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0" styleClass="white-pane">
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </content>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </ScrollPane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
