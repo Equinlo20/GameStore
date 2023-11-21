@@ -109,5 +109,17 @@ public class UserDao implements IUserDao {
         
         return exists;
     }
+
+    @Override
+    public User getUserInSession() {
+        DBInMemory db = DBInMemory.getDB();
+        return db.getUserInSession();
+    }
+
+    @Override
+    public void setUserInSession(User user) {
+        DBInMemory db = DBInMemory.getDB();
+        db.setUserInSession(user);
+    }
     
 }

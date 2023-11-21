@@ -42,5 +42,15 @@ public class UserService implements IUserService{
     public LList<User> getAll() {
         return userDao.getAll();
     }
+
+    @Override
+    public User getUserInSession() {
+        return userDao.getUserInSession();
+    }
+
+    @Override
+    public void setUserInSession(User user) {
+        userDao.setUserInSession(user);
+    }
     
 }

@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import org.openjfx.gamestore.App;
+import org.openjfx.gamestore.models.domain.User;
 import org.openjfx.gamestore.models.service.IUserService;
 import org.openjfx.gamestore.models.service.UserService;
 import org.openjfx.gamestore.utils.AlertUtils;
@@ -21,7 +22,7 @@ import org.openjfx.gamestore.utils.Utilities;
 
 public class LoginController implements Initializable {
 
-    IUserService userService = new UserService();
+    private final IUserService userService = new UserService();
 
     private double xOffset = 0;
     private double yOffset = 0;
@@ -92,11 +93,13 @@ public class LoginController implements Initializable {
         if (username.isBlank() || username.isEmpty() && passw.isBlank() || passw.isEmpty()) {
             AlertUtils.showAlertError("You must fill out all fields.");
         } else if (userService.getByUsername(username) != null) {
-            if (userService.getByUsername(username).getPassword().equals(passw)) {
+            User user = userService.getByUsername(username);
+            if (user.getPassword().equals(passw)) {
+                userService.setUserInSession(user);
                 AlertUtils.showAlertInfo("User successfully logged in");
                 Parent fxml = Utilities.loadFXML("dashboard_user");
                 Utilities.changeScene(fxml, 1100, 700);
-            } else {
+            }else{
                 AlertUtils.showAlertError("Incorrect username or password");
             }
         } else {

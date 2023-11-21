@@ -18,8 +18,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import org.openjfx.gamestore.App;
+import org.openjfx.gamestore.models.domain.User;
 import org.openjfx.gamestore.utils.Utilities;
-
 
 public class Dashboard_userController implements Initializable {
 
@@ -34,10 +34,10 @@ public class Dashboard_userController implements Initializable {
 
     @FXML
     private AnchorPane pane2menu;
-    
+
     @FXML
     private AnchorPane paneContentArea;
-    
+
     @FXML
     private ImageView logoImageMenu;
 
@@ -46,6 +46,7 @@ public class Dashboard_userController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        loadWelcome();
         makeStageDrageable();
         makeMenuAnimation(null, false, 0.1, 0.1, 1, 0, -900);
         Utilities.getEffectTransition(parent, 0.3);
@@ -100,23 +101,31 @@ public class Dashboard_userController implements Initializable {
         translateTransition.setByX(byX);
         translateTransition.play();
     }
-    
-    private void changeContentArea(Parent fxml){
+
+    private void changeContentArea(Parent fxml) {
         if (!paneContentArea.getChildren().isEmpty()) {
             paneContentArea.getChildren().removeAll();
-        }     
+        }
         paneContentArea.getChildren().setAll(fxml);
     }
-    
+
+    private void loadWelcome() {
+        try {
+            changeContentArea(Utilities.loadFXML("welcome"));
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     @FXML
     void closeMenu(MouseEvent event) {
         boolean paneVisible = pane1menu.isVisible();
         if (paneVisible) {
             makeMenuAnimation(event, paneVisible, 0.5, 0.5, 0.15, 0, -900);
             logoImageMenu.setVisible(true);
-        } 
+        }
     }
-    
+
     @FXML
     private void close_app(MouseEvent event) {
         System.exit(0);
@@ -139,18 +148,17 @@ public class Dashboard_userController implements Initializable {
             pane2menu.setOpacity(0.8);
         }
     }
-    
+
     @FXML
-    private void openCatalogue(MouseEvent event) throws IOException{
+    private void openCatalogue(MouseEvent event) throws IOException {
         changeContentArea(Utilities.loadFXML("catalogo_producos"));
     }
-    
+
     @FXML
     void openWishList(MouseEvent event) throws IOException {
         changeContentArea(Utilities.loadFXML("wish_list"));
     }
-    
-    
+
     @FXML
     void openShoppingCart(MouseEvent event) throws IOException {
         changeContentArea(Utilities.loadFXML("shopping_cart"));
@@ -164,5 +172,8 @@ public class Dashboard_userController implements Initializable {
     @FXML
     void openUserAccount(MouseEvent event) throws IOException {
         changeContentArea(Utilities.loadFXML("user_account"));
+    }
+
+    public void setUserLoggued(User user) {
     }
 }

@@ -19,4 +19,7 @@ public interface IUserService {
     public boolean update(User user);
     
     public LList<User> getAll();
+    
+    public User getUserInSession();
+    public void setUserInSession(User user);
 }
