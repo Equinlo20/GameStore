@@ -107,6 +107,16 @@ public class Dashboard_userController implements Initializable {
         }     
         paneContentArea.getChildren().setAll(fxml);
     }
+    
+    @FXML
+    void closeMenu(MouseEvent event) {
+        boolean paneVisible = pane1menu.isVisible();
+        if (paneVisible) {
+            makeMenuAnimation(event, paneVisible, 0.5, 0.5, 0.15, 0, -900);
+            logoImageMenu.setVisible(true);
+        } 
+    }
+    
     @FXML
     private void close_app(MouseEvent event) {
         System.exit(0);
