@@ -96,6 +96,8 @@ public class LoginController implements Initializable {
                 AlertUtils.showAlertInfo("User successfully logged in");
                 Parent fxml = Utilities.loadFXML("dashboard_user");
                 Utilities.changeScene(fxml, 1100, 700);
+            }else{
+                AlertUtils.showAlertError("Incorrect username or password");
             }
         } else {
             AlertUtils.showAlertError("User does not exist");
