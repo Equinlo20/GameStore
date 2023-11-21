@@ -25,6 +25,10 @@ public class Utilities {
         return App.class.getResource("views/" + fxml + ".fxml");
     }
     
+    public static URL getUrlCssResource(String css) throws IOException {
+        return App.class.getResource("views/styles/" + css + ".css");
+    }
+    
     public static InputStream getUrlImage(String image) {
         return App.class.getResourceAsStream(image);
     }

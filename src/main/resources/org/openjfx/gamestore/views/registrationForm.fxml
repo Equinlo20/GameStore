@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" styleClass="parent" stylesheets="@styles/login_styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.gamestore.controllers.RegistrationFormController">
    <children>
       <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="51.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
@@ -31,7 +30,7 @@
          </font>
       </Label>
       <FontAwesomeIconView glyphName="CLOSE" layoutX="379.0" layoutY="20.0" onMouseClicked="#close_app" size="1.5em" stroke="WHITE" styleClass="buttom-close" />
-      <TextField focusTraversable="false" layoutX="50.0" layoutY="300.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Username" styleClass="text-field">
+      <TextField fx:id="usernameTextField" focusTraversable="false" layoutX="50.0" layoutY="300.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Username" styleClass="text-field">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
@@ -42,7 +41,7 @@
             <Insets />
          </opaqueInsets>
       </TextField>
-      <TextField focusTraversable="false" layoutX="50.0" layoutY="347.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Password" styleClass="text-field">
+      <TextField fx:id="passwordTextField" focusTraversable="false" layoutX="50.0" layoutY="347.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Password" styleClass="text-field">
          <font>
             <Font size="14.0" />
          </font>
@@ -50,7 +49,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <TextField focusTraversable="false" layoutX="50.0" layoutY="252.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Name" styleClass="text-field">
+      <TextField fx:id="nameTextField" focusTraversable="false" layoutX="50.0" layoutY="252.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Name" styleClass="text-field">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
@@ -61,8 +60,8 @@
             <Insets />
          </opaqueInsets>
       </TextField>
-      <DatePicker layoutX="50.0" layoutY="405.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Date of Birth" styleClass="datepicker-dateofbirth" />
-      <Button layoutX="50.0" layoutY="456.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="buttom-login" text="Register">
+      <DatePicker fx:id="dateOfBirthDateP" editable="false" layoutX="50.0" layoutY="405.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Date of Birth" styleClass="datepicker-dateofbirth" />
+      <Button layoutX="50.0" layoutY="456.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#registerClient" prefHeight="50.0" prefWidth="300.0" styleClass="buttom-login" text="Register">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

@@ -54,7 +54,7 @@
                   <Font name="Ebrima Bold" size="14.0" />
                </font>
             </Label>
-            <TextField focusTraversable="false" layoutX="56.0" layoutY="286.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Username" styleClass="text-field">
+            <TextField fx:id="usernameTxtField" focusTraversable="false" layoutX="56.0" layoutY="286.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Username" styleClass="text-field">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
@@ -65,7 +65,7 @@
                   <Insets />
                </opaqueInsets>
             </TextField>
-            <TextField focusTraversable="false" layoutX="56.0" layoutY="337.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Password" styleClass="text-field">
+            <TextField fx:id="passwordTxtField" focusTraversable="false" layoutX="56.0" layoutY="337.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Password" styleClass="text-field">
                <font>
                   <Font size="14.0" />
                </font>

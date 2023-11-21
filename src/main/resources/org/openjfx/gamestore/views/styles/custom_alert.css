@@ -1,0 +1,36 @@
+.my-dialog {
+    -fx-background-color: linear-gradient(to bottom left, #00F260, #0575E6);
+}
+
+.my-dialog > *.label.content{
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white; 
+}
+
+.my-dialog .button{
+   -fx-background-color:#0575E6;
+   -fx-text-fill:white;
+   -fx-wrap-text: true;
+   -fx-effect: dropshadow( three-pass-box, yellow, 10.0, 0.0, 0.0, 0.0);
+   -fx-cursor:hand;
+ }
+ 
+.my-dialog .button:hover{     
+  -fx-background-color:white;
+  -fx-text-fill:black;
+  -fx-font-weight:bold; 
+ }
+ 
+.my-dialog .button:pressed{     
+  -fx-effect: dropshadow( three-pass-box, #0575E6, 10.0, 0.0, 0.0, 0.0); 
+ }
+ 
+
+.titled-pane > .content > *{
+    -fx-text-fill: red;
+}
+
+.par{
+    -fx-background-color:red;
+}

@@ -5,7 +5,7 @@
 package org.openjfx.gamestore.data;
 
 /**
- * @param <type>
+ * @param <Type>
  */
 public class Node <Type>{
     private Node next;

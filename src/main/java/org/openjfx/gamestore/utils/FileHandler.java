@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
-//import org.openjfx.gamestore.App;
 
 public class FileHandler {
 
@@ -51,7 +50,9 @@ public class FileHandler {
 
     public static List<String> getDataFIle(String fileName) {
         File file = getFile(fileName);
-
+        if (!file.exists()) {
+            return null;
+        }
         List<String> data = new ArrayList<>();
 
         try {

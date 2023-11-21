@@ -7,12 +7,12 @@ package org.openjfx.gamestore.data;
 /**
  * @param <Type>
  */
-public class List<Type> {
+public class LList<Type> {
 
     private Node<Type> pointer;
     private long size;
 
-    public List() {
+    public LList() {
         this.pointer = null;
         this.size = 0;
     }
