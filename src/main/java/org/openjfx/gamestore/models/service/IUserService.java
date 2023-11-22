@@ -16,7 +16,7 @@ public interface IUserService {
     
     public boolean delete(User user);
     
-    public boolean update(User user);
+    public boolean update(User user, User newUser);
     
     public LList<User> getAll();
     

@@ -59,7 +59,7 @@ public class UserDao implements IUserDao {
     }
 
     @Override
-    public boolean update(User user) {
+    public boolean update(User user, User newUser) {
         boolean updated = false;
         
         DBInMemory db = DBInMemory.getDB();
@@ -68,20 +68,23 @@ public class UserDao implements IUserDao {
             try {
                 if (user.getUsername().equals(listU.get(i).getUsername())) {
                     
-                    listU.get(i).setDateOfBirth(user.getDateOfBirth());
-                    listU.get(i).setEmail(user.getEmail());
-                    listU.get(i).setName(user.getName());
-                    listU.get(i).setPassword(user.getPassword());
-                    listU.get(i).setPhone(user.getPhone());
-                    listU.get(i).setUsername(user.getUsername());
-                    
+                    listU.get(i).setDateOfBirth(newUser.getDateOfBirth());
+                    listU.get(i).setEmail(newUser.getEmail());
+                    listU.get(i).setName(newUser.getName());
+                    listU.get(i).setPassword(newUser.getPassword());
+                    listU.get(i).setPhone(newUser.getPhone());
+                    listU.get(i).setUsername(newUser.getUsername());
+                    updated = true;
                     break;
                 }
             } catch (Exception ex) {
                 System.out.println(ex);
             }
         }
-        updated = db.updateUsersData();
+        if (updated) {
+            db.updateUsersData();
+        }
+        
         return updated;
     }
 

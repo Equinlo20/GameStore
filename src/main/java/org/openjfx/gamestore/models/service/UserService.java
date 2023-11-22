@@ -34,8 +34,8 @@ public class UserService implements IUserService{
     }
 
     @Override
-    public boolean update(User user) {
-        return userDao.update(user);
+    public boolean update(User user, User newUser) {
+        return userDao.update(user, newUser);
     }
 
     @Override

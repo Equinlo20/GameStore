@@ -57,9 +57,9 @@ public class RegistrationFormController {
         String username = usernameTextField.getText();
         String password = passwordTextField.getText();
         if (name.isEmpty() || name.isBlank()
-                && username.isEmpty() || username.isBlank()
-                && password.isBlank() || password.isEmpty()
-                && dateOfBirth == null) {
+                || username.isEmpty() || username.isBlank()
+                || password.isBlank() || password.isEmpty()
+                || dateOfBirth == null) {
             AlertUtils.showAlertError("You must fill out all fields.");
         } else {
             if (!userService.usernameExists(username)) {
