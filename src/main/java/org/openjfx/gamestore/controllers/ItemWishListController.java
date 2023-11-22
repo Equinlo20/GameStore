@@ -12,7 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-import org.openjfx.gamestore.models.domain.ItemGame;
+import org.openjfx.gamestore.models.domain.Game;
 import org.openjfx.gamestore.utils.MyListener;
 
 import org.openjfx.gamestore.utils.Utilities;
@@ -37,19 +37,19 @@ public class ItemWishListController implements Initializable {
 
     }
 
-    private ItemGame item;
+    private Game game;
 
     @FXML
     private void click(MouseEvent event) {
-        myListener.onClickListener(item);
+        myListener.onClickListener(game);
     }
 
-    public void setData(ItemGame itemG, MyListener myListener) {
-        this.item = itemG;
+    public void setData(Game game, MyListener myListener) {
+        this.game = game;
         this.myListener = myListener;
-        nameItemLabel.setText(itemG.getName());
-        priceItemLabel.setText("$" + itemG.getPrice());
-        Image image = new Image(Utilities.getUrlImage(itemG.getImgSrc()));
+        nameItemLabel.setText(game.getName());
+        priceItemLabel.setText("$" + game.getPrice());
+        Image image = new Image(Utilities.getUrlImage(game.getImgSrc()));
         imageItemLabel.setImage(image);
     }
 

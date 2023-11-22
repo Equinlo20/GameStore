@@ -8,6 +8,7 @@ import org.openjfx.gamestore.data.LList;
 import org.openjfx.gamestore.models.domain.User;
 
 public interface IUserService {
+    
     public User getByUsername(String username);
     
     public boolean usernameExists(String username);
@@ -22,4 +23,5 @@ public interface IUserService {
     
     public User getUserInSession();
     public void setUserInSession(User user);
+    
 }

@@ -25,7 +25,7 @@ public class User {
         this.phone = phone;
         this.email = email;
     }
-    
+
     public User(String name, String username, String password, String dateOfBirth) {
         this.name = name;
         this.username = username;
@@ -95,8 +95,9 @@ public class User {
         Period period = Period.between(dateOfB, now);
         return String.valueOf(period.getYears());
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         return String.format("%s;%s;%s;%s;%s;%s", this.name, this.username, this.password, this.dateOfBirth, this.email, this.phone);
     }
 

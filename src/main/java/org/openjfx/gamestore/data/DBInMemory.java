@@ -7,6 +7,7 @@ package org.openjfx.gamestore.data;
 import java.util.ArrayList;
 import org.openjfx.gamestore.models.domain.User;
 import java.util.List;
+import org.openjfx.gamestore.models.domain.Game;
 import org.openjfx.gamestore.utils.FileHandler;
 
 public class DBInMemory {
@@ -14,6 +15,8 @@ public class DBInMemory {
     private static DBInMemory db = new DBInMemory();
 
     private LList<User> listUsers = new LList<>();
+
+    private LList<Game> listGames = new LList<>();
 
     private User userInSession = null;
 
@@ -24,6 +27,7 @@ public class DBInMemory {
         return db;
     }
 
+    //Start Methods for users manage
     private void getUsersData() {
         List<String> info = FileHandler.getDataFIle("users");
         if (info != null && !info.isEmpty()) {
@@ -77,7 +81,67 @@ public class DBInMemory {
         this.listUsers = listUsers;
         updateUsersData(listUsers);
     }
+    //End Methods for users manage
 
+    //Start methods for  games manage
+    private void getGamesData() {
+        List<String> info = FileHandler.getDataFIle("games");
+        if (info != null && !info.isEmpty()) {
+            for (String line : info) {
+                String[] data = line.split(";");
+                long id = Long.parseLong(data[0]);
+                String name = data[1];
+                String imgSrc = data[2];
+                double price = Double.parseDouble(data[3]);
+                String description = data[4];
+                String type = data[5];
+                String createdBy = data[6];
+                String suggestedAge = data[7];
+                this.listGames.addElementToEnd(new Game(id, name, imgSrc, price, description, type, createdBy, suggestedAge));
+            }
+        }
+    }
+    
+    private boolean updateGamesData(LList<Game> listGames) {
+        List<String> info = new ArrayList<>();
+        for (int i = 0; i < listGames.getSize(); i++) {
+            try {
+                info.add(listGames.get(i).toString());
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
+        }
+
+        return FileHandler.updateDataFile(info, "games");
+    }
+    
+    public boolean updateGamesData() {
+        List<String> info = new ArrayList<>();
+        for (int i = 0; i < listGames.getSize(); i++) {
+            try {
+                info.add(listGames.get(i).toString());
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
+        }
+
+        return FileHandler.updateDataFile(info, "games");
+    }
+    
+    public LList<Game> getListGames() {
+        if (listGames.isEmpty()) {
+            getGamesData();
+        }
+        return listGames;   
+    }
+
+    public void setListGames(LList<Game> listGames) {
+        this.listGames = listGames;
+        updateGamesData(listGames);
+    }
+    //End methods for games manage
+
+    //Start Methods for user in session
     public User getUserInSession() {
         return userInSession;
     }
@@ -85,5 +149,5 @@ public class DBInMemory {
     public void setUserInSession(User userInSession) {
         this.userInSession = userInSession;
     }
-
+    //End Methods for user in session
 }

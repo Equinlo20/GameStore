@@ -65,10 +65,19 @@ public class RegistrationFormController {
             if (!userService.usernameExists(username)) {
                 if (userService.save(new User(name, username, password, dateOfBirth.format(dateFormat)))) {
                     AlertUtils.showAlertInfo("User created successfully");
+                    gotoLogin();
                 }
             } else {
                 AlertUtils.showAlertError("Username exists, please choose a different username.");
             }
+        }
+    }
+
+    private void gotoLogin() {
+        try {
+            App.stage.getScene().setRoot(Utilities.loadFXML("login"));
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
     }
 }

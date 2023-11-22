@@ -4,8 +4,8 @@
  */
 package org.openjfx.gamestore.utils;
 
-import org.openjfx.gamestore.models.domain.ItemGame;
+import org.openjfx.gamestore.models.domain.Game;
 
 public interface MyListener {
-    public void onClickListener(ItemGame item);
+    public void onClickListener(Game item);
 }

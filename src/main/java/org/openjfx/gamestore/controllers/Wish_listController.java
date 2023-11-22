@@ -21,7 +21,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
-import org.openjfx.gamestore.models.domain.ItemGame;
+import org.openjfx.gamestore.models.domain.Game;
 import org.openjfx.gamestore.utils.MyListener;
 
 import org.openjfx.gamestore.utils.Utilities;
@@ -61,7 +61,7 @@ public class Wish_listController implements Initializable {
         loadItems();
     }
 
-    private List<ItemGame> items = new ArrayList<>();//Cambiar luego por lista enlazada, esto es para prueba
+    private List<Game> items = new ArrayList<>();//Cambiar luego por lista enlazada, esto es para prueba
 
     private void loadItems() {
         items.addAll(getItems());
@@ -69,7 +69,7 @@ public class Wish_listController implements Initializable {
             setChosenItem(items.get(0));
             myListener = new MyListener(){
                 @Override
-                public void onClickListener(ItemGame item){
+                public void onClickListener(Game item){
                     setChosenItem(item);
                 }
             };
@@ -110,7 +110,7 @@ public class Wish_listController implements Initializable {
         }
     }
     
-    private void setChosenItem(ItemGame item){
+    private void setChosenItem(Game item){
         nameGameLabel.setText(item.getName());
         priceGameLabel.setText("$" + String.valueOf(item.getPrice()));
         gameImage.setImage(new Image(Utilities.getUrlImage(item.getImgSrc())));
@@ -120,12 +120,12 @@ public class Wish_listController implements Initializable {
         typeGameLabel.setText(item.getType());
     }
 
-    private List<ItemGame> getItems() {
-        List<ItemGame> items = new ArrayList<>();
+    private List<Game> getItems() {
+        List<Game> items = new ArrayList<>();
         double initPrice = 49999;
         for (int i = 0; i < 20; i++) {
             initPrice++;
-            ItemGame item = new ItemGame();
+            Game item = new Game();
             item.setName("Halo Combat");
             item.setPrice(initPrice);
             item.setImgSrc("/images/game2.png");

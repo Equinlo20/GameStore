@@ -11,7 +11,7 @@ import org.openjfx.gamestore.models.domain.User;
 
 public class UserService implements IUserService{
     
-    IUserDao userDao = new UserDao(); 
+    private final IUserDao userDao = new UserDao(); 
 
     @Override
     public User getByUsername(String username) {
