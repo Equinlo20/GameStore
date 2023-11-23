@@ -115,4 +115,13 @@ public class FileHandler {
         
         return success;
     }
+    
+    public static void renameFile(String fileName, String newFileName){
+        File file = getFile(fileName);
+        File newFile = getFile(newFileName);
+        if(file.renameTo(newFile)){
+            
+        }
+    }
+    
 }

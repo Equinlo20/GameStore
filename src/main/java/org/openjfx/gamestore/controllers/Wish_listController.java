@@ -6,8 +6,6 @@ package org.openjfx.gamestore.controllers;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,16 +19,27 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import org.openjfx.gamestore.data.LList;
 import org.openjfx.gamestore.models.domain.Game;
+import org.openjfx.gamestore.models.service.IUserService;
+import org.openjfx.gamestore.models.service.IWishListService;
+import org.openjfx.gamestore.models.service.UserService;
+import org.openjfx.gamestore.models.service.WishListService;
 import org.openjfx.gamestore.utils.MyListener;
 
 import org.openjfx.gamestore.utils.Utilities;
 
 public class Wish_listController implements Initializable {
 
+    private final IUserService userService = new UserService();
+    private final IWishListService wsService = new WishListService();
+
     @FXML
     private VBox gameCard;
-    
+
+    @FXML
+    private Label amountItemsCartLabel;
+
     @FXML
     private Label SugAgeGameLabel;
 
@@ -39,10 +48,10 @@ public class Wish_listController implements Initializable {
 
     @FXML
     private Label descriptionGameLabel;
-    
+
     @FXML
     private Label typeGameLabel;
-    
+
     @FXML
     private Label nameGameLabel;
     @FXML
@@ -53,7 +62,7 @@ public class Wish_listController implements Initializable {
     private ScrollPane scroll;
     @FXML
     private GridPane grid;
-    
+
     private MyListener myListener;
 
     @Override
@@ -61,56 +70,70 @@ public class Wish_listController implements Initializable {
         loadItems();
     }
 
-    private List<Game> items = new ArrayList<>();//Cambiar luego por lista enlazada, esto es para prueba
+    private LList<Game> items = new LList<>();
 
     private void loadItems() {
-        items.addAll(getItems());
+        getItems();
         if (!items.isEmpty()) {
-            setChosenItem(items.get(0));
-            myListener = new MyListener(){
+            GridPane gridGames = new GridPane();
+            try {
+                setChosenItem(items.get(0));
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            myListener = new MyListener() {
                 @Override
-                public void onClickListener(Game item){
+                public void onClickListener(Game item) {
                     setChosenItem(item);
                 }
             };
-        }
-        int column = 0;
-        int row = 1;
 
-        for (int i = 0; i < items.size(); i++) {
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(Utilities.getUrlFxmlResource("item_wish_list"));
+            int column = 0;
+            int row = 1;
 
-                AnchorPane anchorPane = fxmlLoader.load();
-                
-                ItemWishListController itemC = fxmlLoader.getController();
- 
-                if (column == 3) {
-                    column = 0;
-                    row++;
+            for (int i = 0; i < items.getSize(); i++) {
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(Utilities.getUrlFxmlResource("item_wish_list"));
+
+                    AnchorPane anchorPane = fxmlLoader.load();
+
+                    ItemWishListController itemC = fxmlLoader.getController();
+
+                    if (column == 3) {
+                        column = 0;
+                        row++;
+                    }
+                    gridGames.add(anchorPane, column++, row);
+
+                    gridGames.setMinWidth(Region.USE_COMPUTED_SIZE);
+                    gridGames.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                    gridGames.setMaxWidth(Region.USE_PREF_SIZE);
+
+                    gridGames.setMinHeight(Region.USE_COMPUTED_SIZE);
+                    gridGames.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                    gridGames.setMaxHeight(Region.USE_PREF_SIZE);
+
+                    GridPane.setMargin(anchorPane, new Insets(6));
+                    try {
+                        itemC.setData(items.get(i), myListener);
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+
+                } catch (IOException ex) {
+                    ex.printStackTrace();
                 }
-                grid.add(anchorPane, column++, row);
 
-                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
-                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                grid.setMaxWidth(Region.USE_PREF_SIZE);
-
-                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
-                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
-                grid.setMaxHeight(Region.USE_PREF_SIZE);
-
-                GridPane.setMargin(anchorPane, new Insets(6));
-                itemC.setData(items.get(i), myListener);
-                
-            } catch (IOException ex) {
-                ex.printStackTrace();
             }
-
+            this.scroll.setContent(gridGames);
+        }else{
+            this.scroll.setContent(this.grid);
         }
+
     }
-    
-    private void setChosenItem(Game item){
+
+    private void setChosenItem(Game item) {
         nameGameLabel.setText(item.getName());
         priceGameLabel.setText("$" + String.valueOf(item.getPrice()));
         gameImage.setImage(new Image(Utilities.getUrlImage(item.getImgSrc())));
@@ -120,24 +143,8 @@ public class Wish_listController implements Initializable {
         typeGameLabel.setText(item.getType());
     }
 
-    private List<Game> getItems() {
-        List<Game> items = new ArrayList<>();
-        double initPrice = 49999;
-        for (int i = 0; i < 20; i++) {
-            initPrice++;
-            Game item = new Game();
-            item.setName("Halo Combat");
-            item.setPrice(initPrice);
-            item.setImgSrc("/images/game2.png");
-            item.setCreatedBy("Microsoft Xbox");
-            item.setDescription("Strategy game in real time, Xbox Exclusive.");
-            item.setType("War");
-            item.setSuggestedAge("13+");
-
-            items.add(item);
-        }
-
-        return items;
+    private void getItems() {
+        this.items = wsService.getWishList().getGames();
     }
 
 }

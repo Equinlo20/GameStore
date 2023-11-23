@@ -67,7 +67,7 @@ public class UserDao implements IUserDao {
         for (int i = 0; i < listU.getSize(); i++) {
             try {
                 if (user.getUsername().equals(listU.get(i).getUsername())) {
-                    
+                    db.setUserInSession(newUser);
                     listU.get(i).setDateOfBirth(newUser.getDateOfBirth());
                     listU.get(i).setEmail(newUser.getEmail());
                     listU.get(i).setName(newUser.getName());

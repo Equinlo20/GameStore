@@ -69,12 +69,12 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="42.0" prefWidth="295.0">
                            <children>
-                              <Label fx:id="nameGameLabel" alignment="CENTER" prefHeight="39.0" prefWidth="195.0" text="Name Product" textFill="WHITE">
+                              <Label fx:id="nameGameLabel" alignment="CENTER" prefHeight="39.0" prefWidth="195.0" text="None" textFill="WHITE">
                                  <font>
                                     <Font name="Impact" size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="priceGameLabel" alignment="CENTER" prefHeight="39.0" prefWidth="86.0" text="\$3.555555" textFill="WHITE">
+                              <Label fx:id="priceGameLabel" alignment="CENTER" prefHeight="39.0" prefWidth="86.0" text="None" textFill="WHITE">
                                  <font>
                                     <Font name="Ebrima" size="18.0" />
                                  </font>
@@ -86,7 +86,7 @@
                         </HBox>
                         <ImageView fx:id="gameImage" fitHeight="180.0" fitWidth="265.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../images/game1.jpg" />
+                              <Image url="@../../../../images/nocontent.png" />
                            </image>
                         </ImageView>
                         <HBox alignment="CENTER" prefHeight="37.0" prefWidth="295.0">
@@ -96,7 +96,7 @@
                                     <Font name="Impact" size="14.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="descriptionGameLabel" prefHeight="34.0" prefWidth="198.0" text="loremp ipsum loremp ipsum " textFill="WHITE">
+                              <Label fx:id="descriptionGameLabel" prefHeight="34.0" prefWidth="198.0" text="None" textFill="WHITE">
                                  <font>
                                     <Font name="Ebrima" size="12.0" />
                                  </font>
@@ -110,7 +110,7 @@
                                     <Font name="Impact" size="14.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="typeGameLabel" prefHeight="26.0" prefWidth="198.0" text="war" textFill="WHITE">
+                              <Label fx:id="typeGameLabel" prefHeight="26.0" prefWidth="198.0" text="None" textFill="WHITE">
                                  <font>
                                     <Font name="Ebrima" size="12.0" />
                                  </font>
@@ -124,7 +124,7 @@
                                     <Font name="Impact" size="14.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="createdByGameLabel" prefHeight="27.0" prefWidth="198.0" text="war" textFill="WHITE">
+                              <Label fx:id="createdByGameLabel" prefHeight="27.0" prefWidth="198.0" text="None" textFill="WHITE">
                                  <font>
                                     <Font name="Ebrima" size="12.0" />
                                  </font>
@@ -138,7 +138,7 @@
                                     <Font name="Impact" size="14.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="SugAgeGameLabel" prefHeight="30.0" prefWidth="186.0" text="war" textFill="WHITE">
+                              <Label fx:id="SugAgeGameLabel" prefHeight="30.0" prefWidth="186.0" text="None" textFill="WHITE">
                                  <font>
                                     <Font name="Ebrima" size="12.0" />
                                  </font>
@@ -175,7 +175,7 @@
                                     <Font name="Impact" size="18.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" styleClass="transparent">
+                              <Button mnemonicParsing="false" onMouseClicked="#addToWishList" styleClass="transparent">
                                  <graphic>
                                     <FontAwesomeIconView glyphName="HEART" size="2em" styleClass="btn-add-wish-list" />
                                  </graphic>
@@ -214,7 +214,7 @@
                                           <Font name="Impact" size="18.0" />
                                        </font>
                                     </Label>
-                                    <Label id="labeltopwish2" alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="195.0" text="0 Items" textFill="#828282">
+                                    <Label id="labeltopwish2" fx:id="amountItemsWSLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="195.0" text="0 Items" textFill="#828282">
                                        <font>
                                           <Font name="Impact" size="18.0" />
                                        </font>

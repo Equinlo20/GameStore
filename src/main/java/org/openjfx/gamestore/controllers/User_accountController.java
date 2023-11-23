@@ -109,8 +109,8 @@ public class User_accountController implements Initializable {
                 if (AlertUtils.getAndShowAlertConfirm("Do you want to make the changes?")) {
                     User newUser = new User(name, username, password, dateBirth.format(dateFormat), phone, email);
                     if (userService.update(this.user, newUser)) {
-                        this.user = newUser;
                         AlertUtils.showAlertInfo("User updated successfully");
+                        this.user = newUser;
                     }
                 }
                 init();

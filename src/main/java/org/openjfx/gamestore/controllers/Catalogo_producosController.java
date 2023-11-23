@@ -6,8 +6,6 @@ package org.openjfx.gamestore.controllers;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,22 +15,38 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import org.openjfx.gamestore.data.LList;
 import org.openjfx.gamestore.models.domain.Game;
+import org.openjfx.gamestore.models.service.GameService;
+import org.openjfx.gamestore.models.service.IGameService;
+import org.openjfx.gamestore.models.service.IUserService;
+import org.openjfx.gamestore.models.service.IWishListService;
+import org.openjfx.gamestore.models.service.UserService;
+import org.openjfx.gamestore.models.service.WishListService;
+import org.openjfx.gamestore.utils.AlertUtils;
 import org.openjfx.gamestore.utils.MyListener;
 
 import org.openjfx.gamestore.utils.Utilities;
 
 public class Catalogo_producosController implements Initializable {
+    
+    private final IUserService userService = new UserService();
+    private final IGameService gameService = new GameService();
+    private final IWishListService wsService = new WishListService();
 
     @FXML
     private VBox gameCard;
     
     @FXML
     private Label SugAgeGameLabel;
+    
+    @FXML
+    private Label amountItemsWSLabel;
 
     @FXML
     private Label createdByGameLabel;
@@ -55,6 +69,8 @@ public class Catalogo_producosController implements Initializable {
     private GridPane grid;
     
     private MyListener myListener;
+    
+    private Game selectedGame;
 
     /**
      * Initializes the controller class.
@@ -62,25 +78,30 @@ public class Catalogo_producosController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         loadItems();
+        loadInfoNumItemsWishList();
     }
 
-    private List<Game> items = new ArrayList<>();//Cambiar luego por lista enlazada, esto es para prueba
-
-    private void loadItems() {
-        items.addAll(getItems());
-        if (!items.isEmpty()) {
-            setChosenItem(items.get(0));
+    private LList<Game> games = new LList<>();
+    
+    private void loadItems2() {
+        getItems();
+        if (!games.isEmpty()) {
+            try {
+                setChosenItem(games.get(0));
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
             myListener = new MyListener(){
                 @Override
-                public void onClickListener(Game item){
-                    setChosenItem(item);
+                public void onClickListener(Game game){
+                    setChosenItem(game);
                 }
             };
         }
         int column = 0;
         int row = 1;
 
-        for (int i = 0; i < items.size(); i++) {
+        for (int i = 0; i < games.getSize(); i++) {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(Utilities.getUrlFxmlResource("item"));
@@ -104,7 +125,11 @@ public class Catalogo_producosController implements Initializable {
                 grid.setMaxHeight(Region.USE_PREF_SIZE);
 
                 GridPane.setMargin(anchorPane, new Insets(6));
-                itemC.setData(items.get(i), myListener);
+                try {
+                    itemC.setData(games.get(i), myListener);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
                 
             } catch (IOException ex) {
                 ex.printStackTrace();
@@ -112,35 +137,95 @@ public class Catalogo_producosController implements Initializable {
 
         }
     }
+
+    private void loadItems() {
+        GridPane gridGames = new GridPane();
+        getItems();
+        if (!games.isEmpty()) {
+            try {
+                setChosenItem(games.get(0));
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            myListener = new MyListener(){
+                @Override
+                public void onClickListener(Game game){
+                    setChosenItem(game);
+                }
+            };
+        }
+        int column = 0;
+        int row = 1;
+
+        for (int i = 0; i < games.getSize(); i++) {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(Utilities.getUrlFxmlResource("item"));
+
+                AnchorPane anchorPane = fxmlLoader.load();
+                
+                ItemController itemC = fxmlLoader.getController();
+ 
+                if (column == 3) {
+                    column = 0;
+                    row++;
+                }
+                gridGames.add(anchorPane, column++, row);
+
+                gridGames.setMinWidth(Region.USE_COMPUTED_SIZE);
+                gridGames.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                gridGames.setMaxWidth(Region.USE_PREF_SIZE);
+
+                gridGames.setMinHeight(Region.USE_COMPUTED_SIZE);
+                gridGames.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                gridGames.setMaxHeight(Region.USE_PREF_SIZE);
+
+                GridPane.setMargin(anchorPane, new Insets(6));
+                try {
+                    itemC.setData(games.get(i), myListener);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+
+        }
+        
+        this.scroll.setContent(gridGames);
+    }
     
-    private void setChosenItem(Game item){
-        nameGameLabel.setText(item.getName());
-        priceGameLabel.setText("$" + String.valueOf(item.getPrice()));
-        gameImage.setImage(new Image(Utilities.getUrlImage(item.getImgSrc())));
-        SugAgeGameLabel.setText(item.getSuggestedAge());
-        createdByGameLabel.setText(item.getCreatedBy());
-        descriptionGameLabel.setText(item.getDescription());
-        typeGameLabel.setText(item.getType());
+    private void setChosenItem(Game game){
+        nameGameLabel.setText(game.getName());
+        priceGameLabel.setText("$" + String.valueOf(game.getPrice()));
+        gameImage.setImage(new Image(Utilities.getUrlImage(game.getImgSrc())));
+        SugAgeGameLabel.setText(game.getSuggestedAge());
+        createdByGameLabel.setText(game.getCreatedBy());
+        descriptionGameLabel.setText(game.getDescription());
+        typeGameLabel.setText(game.getType());
+        this.selectedGame = game;
     }
 
-    private List<Game> getItems() {
-        List<Game> items = new ArrayList<>();
-        double initPrice = 49999;
-        for (int i = 0; i < 20; i++) {
-            initPrice++;
-            Game item = new Game();
-            item.setName("Halo Combat");
-            item.setPrice(initPrice);
-            item.setImgSrc("/images/game2.png");
-            item.setCreatedBy("Microsoft Xbox");
-            item.setDescription("Strategy game in real time, Xbox Exclusive.");
-            item.setType("War");
-            item.setSuggestedAge("13+");
-
-            items.add(item);
+    private void getItems() {
+        this.games = gameService.getAll();
+    }
+    
+    private void loadInfoNumItemsWishList(){
+        amountItemsWSLabel.setText(wsService.getWishList().getNumGames() + " Items");
+    }
+    
+    @FXML
+    void addToWishList(MouseEvent event) {
+        if (!wsService.gameExists(this.selectedGame.getId())) {
+            if (AlertUtils.getAndShowAlertConfirm("Do you want to add the game to the wish list?")) {
+                wsService.addGame(selectedGame);
+                AlertUtils.showAlertInfo("Game added successfully.");
+                loadInfoNumItemsWishList();
+            }
+        }else{
+            AlertUtils.showAlertInfo("Game already added to the wish list.");
         }
-
-        return items;
     }
 
 }

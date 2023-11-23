@@ -19,9 +19,16 @@ import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import org.openjfx.gamestore.App;
 import org.openjfx.gamestore.models.domain.User;
+import org.openjfx.gamestore.models.service.IUserService;
+import org.openjfx.gamestore.models.service.IWishListService;
+import org.openjfx.gamestore.models.service.UserService;
+import org.openjfx.gamestore.models.service.WishListService;
 import org.openjfx.gamestore.utils.Utilities;
 
 public class Dashboard_userController implements Initializable {
+    
+    private final IUserService userService = new UserService();
+    private final IWishListService wsService = new WishListService();
 
     private double xOffset = 0;
     private double yOffset = 0;
@@ -133,6 +140,8 @@ public class Dashboard_userController implements Initializable {
 
     @FXML
     private void sing_off(MouseEvent event) throws IOException {
+        wsService.deleteWishList();
+        userService.setUserInSession(null);
         Utilities.changeScene(Utilities.loadFXML("login"), 800, 600);
     }
 
