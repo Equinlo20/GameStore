@@ -4,10 +4,10 @@
  */
 package org.openjfx.gamestore.utils;
 
-import org.openjfx.gamestore.models.domain.Game;
+import org.openjfx.gamestore.models.domain.ItemGame;
 
-public interface MyListener {
-    public void onClickListener(Game item);
+public interface CartListener {
+    public void onClickUpdateListener();
     
-    public void onClickListenerDelete(Game item);
+    public void onClickDeleteItemGameListener(ItemGame item);
 }

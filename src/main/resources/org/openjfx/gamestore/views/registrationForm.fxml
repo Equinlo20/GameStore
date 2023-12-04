@@ -7,6 +7,7 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -41,14 +42,14 @@
             <Insets />
          </opaqueInsets>
       </TextField>
-      <TextField fx:id="passwordTextField" focusTraversable="false" layoutX="50.0" layoutY="347.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Password" styleClass="text-field">
+      <PasswordField fx:id="passwordTextField" focusTraversable="false" layoutX="50.0" layoutY="347.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Password" styleClass="text-field">
          <font>
             <Font size="14.0" />
          </font>
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
-      </TextField>
+      </PasswordField>
       <TextField fx:id="nameTextField" focusTraversable="false" layoutX="50.0" layoutY="252.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Name" styleClass="text-field">
          <cursor>
             <Cursor fx:constant="TEXT" />

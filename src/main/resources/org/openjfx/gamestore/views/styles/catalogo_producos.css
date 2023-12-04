@@ -42,6 +42,11 @@
     -fx-background-radius: 30;
 }
 
+.spinner{
+  -fx-background-color: rgba(239, 239, 239, 0.3);
+  -fx-background-radius: 30;
+}
+
 .bt-add-cart{
     -fx-background-color: #FFFFFF;
     -fx-background-radius: 100;

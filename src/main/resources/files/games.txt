@@ -1,7 +1,7 @@
-100001;Halo Reach;/images/game2.png;53250;Clasic and strategy game of war;War;ACTIVISION;13+
-100002;Metal Gear Solid 3;/images/game1.jpg;65300;Tactical and espionage game;War;SONY;15+
-100003;Bloodborne;/images/game3.jpg;75000;Clasic and strategy game of war;War;SONY;13+
-100004;Grand theft auto;/images/game4.jpg;90000;strategy game;Strategy;xxxxxxxxxx;13+
-100005;The last of us;/images/game5.jpg;69990;Survival game;Survival;SONY;13+
-100006;Farcry;/images/game6.jpg;49990;Clasic and strategy game of war;War;Ubisoft;13+
-100007;Destiny;/images/game7.jpg;78500;Modern and strategy game of war;War;ACTIVISION;13+
+100001;Halo Reach;/images/game2.png;53250.0;Clasic and strategy game of war;War;ACTIVISION;13+
+100002;Metal Gear Solid 3;/images/game1.jpg;65300.0;Tactical and espionage game;War;SONY;15+
+100003;Bloodborne;/images/game3.jpg;75000.0;Clasic and strategy game of war;War;SONY;13+
+100004;Grand theft auto;/images/game4.jpg;90000.0;strategy game;Strategy;xxxxxxxxxx;13+
+100005;The last of us;/images/game5.jpg;69990.0;Survival game;Survival;SONY;13+
+100006;Farcry;/images/game6.jpg;49990.0;Clasic and strategy game of war;War;Ubisoft;13+
+100007;Destiny;/images/game7.jpg;78500.0;Modern and strategy game of war;War;ACTIVISION;13+

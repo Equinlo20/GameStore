@@ -1,0 +1,59 @@
+.pane-principal{
+    -fx-background-color:  #F7F7F7;
+}
+
+.pane-principal:hover{
+    -fx-background-color: #86e1ff;
+}
+
+.alternative-color{
+    -fx-background-color: white;
+}
+
+.alternative-color:hover{
+    -fx-background-color: #86e1ff;
+}
+
+.btn-view{
+    -fx-fill:green;
+}
+
+.btn-view:hover{
+    /*-fx-fill: #0575E6;*/
+    -fx-effect:  dropshadow(three-pass-box, rgba(154,205,55,0.7), 10, 0, 0, 0);
+}
+
+.btn-view:pressed{
+    -fx-effect:  dropshadow(three-pass-box, rgba(0,0,0,1.0), 10, 0, 0, 0);
+}
+
+.btn-edit{
+    -fx-fill:blue;
+}
+
+.btn-edit:hover{
+    /*-fx-fill: #0575E6;*/
+    -fx-effect:  dropshadow(three-pass-box, rgba(154,205,55,0.7), 10, 0, 0, 0);
+}
+
+.btn-edit:pressed{
+    -fx-effect:  dropshadow(three-pass-box, rgba(0,0,0,1.0), 10, 0, 0, 0);
+}
+
+.btn-delete{
+    -fx-fill:red;
+}
+
+.btn-delete:hover{
+    /*-fx-fill: #0575E6;*/
+    -fx-effect:  dropshadow(three-pass-box, rgba(154,205,55,0.7), 10, 0, 0, 0);
+}
+
+.btn-delete:pressed{
+    -fx-effect:  dropshadow(three-pass-box, rgba(0,0,0,1.0), 10, 0, 0, 0);
+}
+
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+    
+}

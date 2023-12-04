@@ -4,6 +4,7 @@
  */
 package org.openjfx.gamestore.models.service;
 
+import java.io.File;
 import org.openjfx.gamestore.data.LList;
 import org.openjfx.gamestore.models.dao.GameDao;
 import org.openjfx.gamestore.models.dao.IGameDao;
@@ -24,8 +25,8 @@ public class GameService implements IGameService {
     }
 
     @Override
-    public boolean save(Game game) {
-        return gameDao.save(game);
+    public boolean save(Game game, File file) {
+        return gameDao.save(game, file);
     }
 
     @Override
@@ -34,8 +35,8 @@ public class GameService implements IGameService {
     }
 
     @Override
-    public boolean update(Game game) {
-        return gameDao.update(game);
+    public boolean update(Game game, File file) {
+        return gameDao.update(game, file);
     }
 
     @Override

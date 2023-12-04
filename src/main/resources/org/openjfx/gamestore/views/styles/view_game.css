@@ -1,0 +1,60 @@
+.transparent{
+    -fx-background-color: rgba(0,0,0,0); 
+}
+
+.btn_content_back{
+    -fx-text-fill:#000000;
+}
+
+.btn_content_back:hover{
+    -fx-text-fill: #0575E6;
+    -fx-effect:  dropshadow(three-pass-box, rgba(154,205,55,0.7), 10, 0, 0, 0);
+}
+
+.btn_content_back:pressed{
+    -fx-effect:  dropshadow(three-pass-box, rgba(0,0,0,1.0), 10, 0, 0, 0);
+}
+
+.pane-center{
+    -fx-background-color: white;
+    /*-fx-background-color: linear-gradient(to bottom left, #00F260, #0575E6);*/
+}
+
+.white-pane{
+    -fx-background-color: white;
+}
+
+.info-pane{
+    -fx-background-color:  #eceaea /*#D3D3D3*/;
+    -fx-background-radius: 10;
+}
+
+.btn-back{
+    -fx-fill:#000000;
+}
+
+.btn-back:hover{
+    -fx-fill: #0575E6;
+    -fx-effect:  dropshadow(three-pass-box, rgba(154,205,55,0.7), 10, 0, 0, 0);
+}
+
+.btn-back:pressed{
+    -fx-effect:  dropshadow(three-pass-box, rgba(0,0,0,1.0), 10, 0, 0, 0);
+}
+
+.btn_content_back #arrow_back{
+    -fx-fill:#000000;
+}
+
+.btn_content_back:hover #arrow_back{
+    -fx-fill: #0575E6;
+    -fx-effect:  dropshadow(three-pass-box, rgba(154,205,55,0.7), 10, 0, 0, 0);
+}
+
+.btn_content_back:pressed #arrow_back{
+    -fx-effect:  dropshadow(three-pass-box, rgba(0,0,0,1.0), 10, 0, 0, 0);
+}
+
+#descScrollPane > .viewport{
+    -fx-background-color: transparent;
+}

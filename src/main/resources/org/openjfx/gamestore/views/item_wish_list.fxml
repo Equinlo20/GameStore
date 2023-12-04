@@ -18,7 +18,7 @@
          <children>
             <HBox alignment="BASELINE_RIGHT" prefHeight="22.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" styleClass="transparent">
+                  <Button fx:id="btnDeleteItemWishList" mnemonicParsing="false" onMouseClicked="#deleteItemWishList" styleClass="transparent">
                      <graphic>
                         <FontAwesomeIconView glyphName="TIMES_CIRCLE" size="16" styleClass="btn-delete" />
                      </graphic>

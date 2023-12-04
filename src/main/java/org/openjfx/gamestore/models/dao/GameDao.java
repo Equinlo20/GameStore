@@ -4,9 +4,11 @@
  */
 package org.openjfx.gamestore.models.dao;
 
+import java.io.File;
 import org.openjfx.gamestore.data.DBInMemory;
 import org.openjfx.gamestore.data.LList;
 import org.openjfx.gamestore.models.domain.Game;
+import org.openjfx.gamestore.utils.FileHandler;
 
 public class GameDao implements IGameDao {
 
@@ -14,7 +16,7 @@ public class GameDao implements IGameDao {
     public Game getById(long id) {
         Game game = null;
         DBInMemory db = DBInMemory.getDB();
-        LList<Game> listG =  db.getListGames();
+        LList<Game> listG = db.getListGames();
         for (int i = 0; i < listG.getSize(); i++) {
             try {
                 if (id == listG.get(i).getId()) {
@@ -32,7 +34,7 @@ public class GameDao implements IGameDao {
     public boolean idExists(long id) {
         boolean exists = false;
         DBInMemory db = DBInMemory.getDB();
-        LList<Game> listG =  db.getListGames();
+        LList<Game> listG = db.getListGames();
         for (int i = 0; i < listG.getSize(); i++) {
             try {
                 if (id == listG.get(i).getId()) {
@@ -43,16 +45,16 @@ public class GameDao implements IGameDao {
                 System.out.println(ex);
             }
         }
-        
+
         return exists;
     }
 
     @Override
-    public boolean save(Game game) {
+    public boolean save(Game game, File file) {
         boolean saved = false;
-        
+        FileHandler.saveImage(file, game.getImgSrc());
         DBInMemory db = DBInMemory.getDB();
-        LList<Game> listG =  db.getListGames();
+        LList<Game> listG = db.getListGames();
         listG.addElementToEnd(game);
         saved = db.updateGamesData();
         return saved;
@@ -62,7 +64,7 @@ public class GameDao implements IGameDao {
     public boolean delete(Game game) {
         boolean removed = false;
         DBInMemory db = DBInMemory.getDB();
-        LList<Game> listG =  db.getListGames();
+        LList<Game> listG = db.getListGames();
         for (int i = 0; i < listG.getSize(); i++) {
             try {
                 if (game.getId() == listG.get(i).getId()) {
@@ -74,19 +76,20 @@ public class GameDao implements IGameDao {
             }
         }
         db.updateGamesData();
+        FileHandler.deleteImage(game.getImgSrc());
         return removed;
     }
 
     @Override
-    public boolean update(Game game) {
+    public boolean update(Game game, File file) {
         boolean updated = false;
-        
+
         DBInMemory db = DBInMemory.getDB();
-        LList<Game> listG =  db.getListGames();
+        LList<Game> listG = db.getListGames();
         for (int i = 0; i < listG.getSize(); i++) {
             try {
                 if (game.getId() == listG.get(i).getId()) {
-                    
+
                     listG.get(i).setId(game.getId());
                     listG.get(i).setCreatedBy(game.getCreatedBy());
                     listG.get(i).setDescription(game.getDescription());
@@ -104,8 +107,12 @@ public class GameDao implements IGameDao {
         }
         if (updated) {
             db.updateGamesData();
+            if (file != null) {
+                FileHandler.saveImage(file, game.getImgSrc());
+            }
+
         }
-        
+
         return updated;
     }
 
@@ -114,5 +121,5 @@ public class GameDao implements IGameDao {
         DBInMemory db = DBInMemory.getDB();
         return db.getListGames();
     }
-    
+
 }

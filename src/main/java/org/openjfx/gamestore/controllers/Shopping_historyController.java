@@ -6,8 +6,6 @@ package org.openjfx.gamestore.controllers;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +13,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import org.openjfx.gamestore.data.LList;
 import org.openjfx.gamestore.models.domain.Purchase;
+import org.openjfx.gamestore.models.service.IPurchaseService;
+import org.openjfx.gamestore.models.service.PurchaseService;
 import org.openjfx.gamestore.utils.Utilities;
 
 public class Shopping_historyController implements Initializable {
@@ -25,6 +26,8 @@ public class Shopping_historyController implements Initializable {
     
     @FXML
     private VBox purchasePaneTable;
+    
+    private final IPurchaseService purchaseService = new PurchaseService();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -32,8 +35,8 @@ public class Shopping_historyController implements Initializable {
     }
 
     private void loadPurchases() {
-        List<Purchase> purchases = getPurchases();
-        for (int i = 0; i < purchases.size(); i++) {
+        LList<Purchase> purchases = purchaseService.getAllPurchases();
+        for (int i = 0; i < purchases.getSize(); i++) {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(Utilities.getUrlFxmlResource("item_purchase"));
@@ -44,7 +47,11 @@ public class Shopping_historyController implements Initializable {
                 }
                 Item_purchaseController itemC = fxmlLoader.getController();
                 
-                itemC.setData(purchases.get(i), i+1);
+                try {
+                    itemC.setData(purchases.get(i), i+1);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
                 
                 purchasePaneTable.getChildren().add(hBox);
             } catch (IOException ex) {
@@ -52,24 +59,7 @@ public class Shopping_historyController implements Initializable {
             }
         }
         
-        numPurchasesLabel.setText(purchases.size() + " PURCHASES");
-    }
-
-    private List<Purchase> getPurchases() {
-        List<Purchase> purchases = new ArrayList<>();
-        double initPrice = 49999;
-        for (int i = 0; i < 20; i++) {
-            initPrice++;
-            Purchase item = new Purchase();
-            item.setId(151515);
-            item.setDate("11/11/2023");
-            item.setNumItems(5);
-            item.setTotal(250000);
-
-            purchases.add(item);
-        }
-
-        return purchases;
+        numPurchasesLabel.setText(purchases.getSize() + " PURCHASES");
     }
 
 }

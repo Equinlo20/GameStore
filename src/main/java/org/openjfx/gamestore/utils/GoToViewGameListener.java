@@ -6,8 +6,8 @@ package org.openjfx.gamestore.utils;
 
 import org.openjfx.gamestore.models.domain.Game;
 
-public interface MyListener {
-    public void onClickListener(Game item);
+public interface GoToViewGameListener {
+    public void onClickListenerGoToGameView(Game game,String nameView);
     
-    public void onClickListenerDelete(Game item);
+    public void onClickListenerDeleteGame(Game game);
 }

@@ -97,7 +97,10 @@ public class LoginController implements Initializable {
             if (user.getPassword().equals(passw)) {
                 userService.setUserInSession(user);
                 AlertUtils.showAlertInfo("User successfully logged in");
-                Parent fxml = Utilities.loadFXML("dashboard_user");
+                
+                String viewToGo = user.getType().equals("client") ? "dashboard_user" : "dashboard_admin";
+                
+                Parent fxml = Utilities.loadFXML(viewToGo);
                 Utilities.changeScene(fxml, 1100, 700);
             }else{
                 AlertUtils.showAlertError("Incorrect username or password");

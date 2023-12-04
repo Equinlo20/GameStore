@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import org.openjfx.gamestore.models.domain.User;
 import java.util.List;
 import org.openjfx.gamestore.models.domain.Game;
+import org.openjfx.gamestore.models.domain.ItemGame;
+import org.openjfx.gamestore.models.domain.Purchase;
 import org.openjfx.gamestore.models.domain.WishList;
 import org.openjfx.gamestore.utils.FileHandler;
 
@@ -22,6 +24,10 @@ public class DBInMemory {
     private WishList wishList = new WishList();
 
     private User userInSession = null;
+
+    private Purchase currentPurchase = null;
+
+    private LList<Purchase> listPurchases = new LList<>();
 
     private DBInMemory() {
     }
@@ -42,7 +48,8 @@ public class DBInMemory {
                 String dateOfBirth = data[3];
                 String phone = "null".equals(data[4]) ? null : data[4];
                 String email = "null".equals(data[4]) ? null : data[5];
-                this.listUsers.addElementToEnd(new User(name, username, password, dateOfBirth, phone, email));
+                String userType = data[6];
+                this.listUsers.addElementToEnd(new User(name, username, password, dateOfBirth, phone, email, userType));
             }
         }
     }
@@ -208,11 +215,103 @@ public class DBInMemory {
     }
     //End methods for wishlist manage
 
+    //Start methods for  purchases manage
+    private void getPurchasesListData() {
+        List<String> info = FileHandler.getDataFIle(this.userInSession.getUsername() + "_purchases");
+        if (info != null && !info.isEmpty()) {
+            long idPurchase = 0;
+            Purchase purchase = null;
+            for (String line : info) {
+                String[] data = line.split(";");
+
+                long idTemp = Long.parseLong(data[0]);
+
+                if (purchase == null) {
+                    idPurchase = idTemp;
+                    purchase = new Purchase(idPurchase, data[1]);
+                    this.listPurchases.addElementToEnd(purchase);
+                }
+
+                if (idTemp != idPurchase) {
+                    idPurchase = idTemp;
+                    purchase = new Purchase(idPurchase, data[1]);
+                    this.listPurchases.addElementToEnd(purchase);
+                }
+                
+                if (idTemp == idPurchase) {
+                    long idGame = Long.parseLong(data[2]);
+                    String name = data[3];
+                    String imgSrc = data[4];
+                    double price = Double.parseDouble(data[5]);
+                    String description = data[6];
+                    String type = data[7];
+                    String createdBy = data[8];
+                    String suggestedAge = data[9];
+                    long amount = Long.parseLong(data[10]);
+                    purchase.getItems().addElementToEnd(new ItemGame(new Game(idGame, name, imgSrc, price, description, type, createdBy, suggestedAge), amount));
+                }
+
+            }
+        }
+    }
+
+    private boolean updatePurchasesData(LList<Purchase> purchaseList) {
+        List<String> info = new ArrayList<>();
+        for (int i = 0; i < purchaseList.getSize(); i++) {
+            try {
+                info.add(purchaseList.get(i).toString());
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
+        }
+
+        return FileHandler.updateDataFile(info, this.userInSession.getUsername() + "_purchases");
+    }
+
+    public boolean updatePurchasesData() {
+        List<String> info = new ArrayList<>();
+        for (int i = 0; i < this.listPurchases.getSize(); i++) {
+            try {
+                info.add(this.listPurchases.get(i).toString());
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
+        }
+
+        return FileHandler.updateDataFile(info, this.userInSession.getUsername() + "_purchases");
+    }
+
+    public LList<Purchase> getListPurchases() {
+        if (listPurchases.isEmpty()) {
+            getPurchasesListData();
+        }
+        return this.listPurchases;
+    }
+
+    public void clearListPurchases() {
+        this.listPurchases.removeAll();
+    }
+
+    public void setPurchasesListGames(LList<Purchase> listPurchases) {
+        this.listPurchases = listPurchases;
+        updatePurchasesData(listPurchases);
+    }
+
+    public Purchase getCurrentPurchase() {
+        return this.currentPurchase;
+    }
+
+    public void setCurrentPurchase(Purchase purchase) {
+        this.currentPurchase = purchase;
+    }
+
+    //End methods for purchases manage
     //Start Methods for user in session
     private void updateDataFile(User user) {
         if (this.userInSession != null) {
             if (!this.userInSession.getUsername().equals(user.getUsername())) {
                 FileHandler.renameFile(this.userInSession.getUsername() + "_wishlist", user.getUsername() + "_wishlist");
+                FileHandler.renameFile(this.userInSession.getUsername() + "_purchases", user.getUsername() + "_purchases");
             }
         }
     }

@@ -27,6 +27,8 @@ public class Item_purchaseController implements Initializable {
     private Label totalPurchaseLabel;
     @FXML
     private Label numLabel;
+    
+    private Purchase purchase;
 
 
     /**
@@ -38,6 +40,8 @@ public class Item_purchaseController implements Initializable {
     }   
     
     public void setData(Purchase purchase, int num){
+        this.purchase = purchase;
+        
         numLabel.setText(String.valueOf(num));
         datePurchaseLabel.setText(purchase.getDate());
         idPurchaseLabel.setText(String.valueOf(purchase.getId()));

@@ -1,11 +1,28 @@
-
 package org.openjfx.gamestore.models.domain;
 
+import org.openjfx.gamestore.data.LList;
+
 public class Purchase {
+
     private long id;
     private String date;
-    private int numItems; //numItems se va a calcular luego a partir del tamaño de la lista de items que se debe reemplazar aquí.
-    private double total; //El total luego se va a calcular con un metodo en esta clase, el cual recorra la pila o lista donde esten almacenados los items e ir sacando los valores de costos para sumarlos
+    private LList<ItemGame> items;
+
+    public Purchase(long id, String date, LList<ItemGame> items) {
+        this.id = id;
+        this.date = date;
+        this.items = items;
+    }
+
+    public Purchase(long id, String date) {
+        this.id = id;
+        this.date = date;
+        this.items = new LList<>();
+    }
+
+    public Purchase() {
+        this.items = new LList<>();
+    }
 
     public long getId() {
         return id;
@@ -23,20 +40,49 @@ public class Purchase {
         this.date = date;
     }
 
-    public int getNumItems() {
-        return numItems;
+    public LList<ItemGame> getItems() {
+        return items;
     }
 
-    public void setNumItems(int numItems) {
-        this.numItems = numItems;
+    public void setItems(LList<ItemGame> items) {
+        this.items = items;
+    }
+
+    public long getNumItems() {
+        return this.items.getSize();
     }
 
     public double getTotal() {
-        return total;
+        double totalPay = 0;
+        for (int i = 0; i < this.items.getSize(); i++) {
+            try {
+                totalPay += this.items.get(i).getTotalItemPrice();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return totalPay;
     }
 
-    public void setTotal(double total) {
-        this.total = total;
+    @Override
+    public String toString() {
+        String data = "";
+        long size = this.items.getSize();
+        for (int i = 0; i < size; i++) {
+            if (i < size - 1) {
+                try {
+                    data += String.format("%s;%s;%s\n", this.id, this.date, this.items.get(i).toString());
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            } else {
+                try {
+                    data += String.format("%s;%s;%s", this.id, this.date, this.items.get(i).toString());
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+        return data;
     }
-    
 }

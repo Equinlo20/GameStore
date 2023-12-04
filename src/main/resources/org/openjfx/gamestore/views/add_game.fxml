@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="654.0" prefWidth="1056.0" styleClass="mainFxmlClass" stylesheets="@styles/user_account.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.gamestore.controllers.Add_gameController">
+   <children>
+      <BorderPane fx:id="borderPaneArea" layoutX="146.0" layoutY="86.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@styles/user_account.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox prefHeight="654.0" prefWidth="150.0" styleClass="pane-left" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../images/logo_negro.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <VBox fx:id="paneCenter" alignment="TOP_CENTER" prefHeight="654.4" prefWidth="905.6" spacing="20.0" styleClass="pane-center" stylesheets="@styles/add_game.css" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #D3D3D3; -fx-background-radius: 10;">
+                     <children>
+                        <Label id="labeltopcart1" alignment="CENTER" prefHeight="35.0" prefWidth="803.0" text="Add New Game">
+                           <font>
+                              <Font name="Impact" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
+                  <VBox styleClass="info-pane" VBox.vgrow="ALWAYS">
+                     <children>
+                        <HBox prefHeight="429.0" prefWidth="805.0" styleClass="info-pane">
+                           <children>
+                              <VBox alignment="TOP_CENTER" prefHeight="474.0" prefWidth="837.0" spacing="5.0" styleClass="info-pane">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="55.0" prefWidth="434.0">
+                                       <children>
+                                          <Label id="labeltopcart1" prefHeight="42.0" prefWidth="55.0" text="Name:" textFill="#828282">
+                                             <font>
+                                                <Font name="Impact" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="nameTxtField" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="293.0" promptText="Name" styleClass="text-field">
+                                             <cursor>
+                                                <Cursor fx:constant="TEXT" />
+                                             </cursor>
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </TextField>
+                                       </children>
+                                       <padding>
+                                          <Insets left="30.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="55.0" prefWidth="434.0">
+                                       <children>
+                                          <Label id="labeltopcart1" prefHeight="35.0" prefWidth="55.0" text="Price:" textFill="#828282">
+                                             <font>
+                                                <Font name="Impact" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="priceTxtField" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="290.0" promptText="Price" styleClass="text-field">
+                                             <cursor>
+                                                <Cursor fx:constant="TEXT" />
+                                             </cursor>
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </TextField>
+                                       </children>
+                                       <padding>
+                                          <Insets left="30.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="55.0" prefWidth="434.0">
+                                       <children>
+                                          <Label id="labeltopcart1" prefHeight="35.0" prefWidth="90.0" text="Description:" textFill="#828282">
+                                             <font>
+                                                <Font name="Impact" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="descriptionTxtField" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="254.0" promptText="Description" styleClass="text-field">
+                                             <cursor>
+                                                <Cursor fx:constant="TEXT" />
+                                             </cursor>
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </TextField>
+                                       </children>
+                                       <padding>
+                                          <Insets left="30.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="55.0" prefWidth="434.0">
+                                       <children>
+                                          <Label id="labeltopcart1" prefHeight="35.0" prefWidth="55.0" text="Type:" textFill="#828282">
+                                             <font>
+                                                <Font name="Impact" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="typeTxtField" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="294.0" promptText="Type" styleClass="text-field">
+                                             <cursor>
+                                                <Cursor fx:constant="TEXT" />
+                                             </cursor>
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </TextField>
+                                       </children>
+                                       <padding>
+                                          <Insets left="30.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="55.0" prefWidth="434.0">
+                                       <children>
+                                          <Label id="labeltopcart1" prefHeight="35.0" prefWidth="98.0" text="Created By:" textFill="#828282">
+                                             <font>
+                                                <Font name="Impact" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="createdByTxtField" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="254.0" promptText="Created By" styleClass="text-field">
+                                             <cursor>
+                                                <Cursor fx:constant="TEXT" />
+                                             </cursor>
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </TextField>
+                                       </children>
+                                       <padding>
+                                          <Insets left="30.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="55.0" prefWidth="434.0">
+                                       <children>
+                                          <Label id="labeltopcart1" prefHeight="35.0" prefWidth="122.0" text="Suggested Age:" textFill="#828282">
+                                             <font>
+                                                <Font name="Impact" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="sugAgeTxtField" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="234.0" promptText="Suggested Age" styleClass="text-field">
+                                             <cursor>
+                                                <Cursor fx:constant="TEXT" />
+                                             </cursor>
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </TextField>
+                                       </children>
+                                       <padding>
+                                          <Insets left="30.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets top="20.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="474.0" prefWidth="776.0" spacing="10.0" styleClass="info-pane">
+                                 <children>
+                                    <ImageView fx:id="imageGame" fitHeight="270.0" fitWidth="275.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../images/nocontent.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="pathImage" prefHeight="18.0" prefWidth="273.0" text="Path: no image selected" />
+                                    <Button mnemonicParsing="false" onMouseClicked="#selectImage" prefHeight="26.0" prefWidth="96.0" text="Select Image" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="67.0" prefWidth="805.0">
+                           <children>
+                              <Button mnemonicParsing="false" onMouseClicked="#saveGame" prefHeight="40.0" prefWidth="99.0" styleClass="btn_save" text="Save">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIconView id="save_icon" glyphName="SAVE" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="30.0" left="50.0" right="50.0" top="30.0" />
+               </padding>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

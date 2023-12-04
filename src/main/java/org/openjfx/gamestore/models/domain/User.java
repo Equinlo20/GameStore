@@ -10,20 +10,24 @@ import java.time.format.DateTimeFormatter;
 
 public class User {
 
+    private final String DEFAULTTYPE = "client";
+
     private String name;
     private String username;
     private String password;
     private String dateOfBirth;
     private String phone;
     private String email;
+    private String type;
 
-    public User(String name, String username, String password, String dateOfBirth, String phone, String email) {
+    public User(String name, String username, String password, String dateOfBirth, String phone, String email, String type) {
         this.name = name;
         this.username = username;
         this.password = password;
         this.dateOfBirth = dateOfBirth;
         this.phone = phone;
         this.email = email;
+        this.type = type;
     }
 
     public User(String name, String username, String password, String dateOfBirth) {
@@ -33,6 +37,7 @@ public class User {
         this.dateOfBirth = dateOfBirth;
         this.phone = null;
         this.email = null;
+        this.type = this.DEFAULTTYPE;
     }
 
     public User() {
@@ -96,9 +101,17 @@ public class User {
         return String.valueOf(period.getYears());
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
-        return String.format("%s;%s;%s;%s;%s;%s", this.name, this.username, this.password, this.dateOfBirth, this.email, this.phone);
+        return String.format("%s;%s;%s;%s;%s;%s;%s", this.name, this.username, this.password, this.dateOfBirth, this.email, this.phone, this.type);
     }
 
 }

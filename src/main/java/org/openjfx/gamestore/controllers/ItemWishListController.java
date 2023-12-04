@@ -8,6 +8,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
@@ -17,13 +18,17 @@ import org.openjfx.gamestore.utils.MyListener;
 
 import org.openjfx.gamestore.utils.Utilities;
 
-
 public class ItemWishListController implements Initializable {
 
     @FXML
+    private Button btnDeleteItemWishList;
+
+    @FXML
     private Label nameItemLabel;
+    
     @FXML
     private Label priceItemLabel;
+    
     @FXML
     private ImageView imageItemLabel;
 
@@ -51,6 +56,11 @@ public class ItemWishListController implements Initializable {
         priceItemLabel.setText("$" + game.getPrice());
         Image image = new Image(Utilities.getUrlImage(game.getImgSrc()));
         imageItemLabel.setImage(image);
+    }
+
+    @FXML
+    void deleteItemWishList(MouseEvent event) {
+        myListener.onClickListenerDelete(game);
     }
 
 }

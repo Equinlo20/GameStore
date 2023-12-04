@@ -7,6 +7,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +17,8 @@ public class FileHandler {
 
     private static final String PATHDIRECTORY = "src/main/resources/files/";
     private static final String FILEEXTENSION = ".txt";
+    
+    private static final String PATHDIRECTORYIMAGES = "src/main/resources";
 
     public static File getFile(String fileName) {
         File file = new File(PATHDIRECTORY, fileName + FILEEXTENSION);
@@ -118,10 +123,24 @@ public class FileHandler {
     
     public static void renameFile(String fileName, String newFileName){
         File file = getFile(fileName);
+        
         File newFile = getFile(newFileName);
         if(file.renameTo(newFile)){
             
         }
+    }
+    
+    public static void saveImage(File file, String srcImage){
+        try {
+            Files.copy(Paths.get(file.getPath()), Paths.get(PATHDIRECTORYIMAGES + srcImage), REPLACE_EXISTING);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    public static void deleteImage(String srcImage){
+        File image = new File(PATHDIRECTORYIMAGES + srcImage);
+        image.delete();
     }
     
 }

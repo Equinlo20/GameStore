@@ -18,22 +18,15 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import org.openjfx.gamestore.App;
-import org.openjfx.gamestore.models.domain.User;
-import org.openjfx.gamestore.models.service.IPurchaseService;
 import org.openjfx.gamestore.models.service.IUserService;
-import org.openjfx.gamestore.models.service.IWishListService;
-import org.openjfx.gamestore.models.service.PurchaseService;
 import org.openjfx.gamestore.models.service.UserService;
-import org.openjfx.gamestore.models.service.WishListService;
 import org.openjfx.gamestore.utils.ListenerProvider;
 import org.openjfx.gamestore.utils.SetViewListener;
 import org.openjfx.gamestore.utils.Utilities;
 
-public class Dashboard_userController implements Initializable {
+public class Dashboard_adminController implements Initializable {
 
     private final IUserService userService = new UserService();
-    private final IWishListService wsService = new WishListService();
-    private final IPurchaseService purchaseService = new PurchaseService();
 
     private double xOffset = 0;
     private double yOffset = 0;
@@ -52,7 +45,7 @@ public class Dashboard_userController implements Initializable {
 
     @FXML
     private ImageView logoImageMenu;
-
+    
     private SetViewListener svListener;
 
     /**
@@ -67,21 +60,6 @@ public class Dashboard_userController implements Initializable {
         Utilities.getEffectTransition(parent, 0.3);
     }
     
-    public void loadListener(){
-        svListener = new SetViewListener () {
-            @Override
-            public void onClickListenerGoToView(String nameView){
-                try {
-                    changeContentArea(Utilities.loadFXML(nameView));
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-            } 
-        };
-        
-        ListenerProvider.getListenerProvider().setStListener(svListener);
-    }
-
     public void makeStageDrageable() {
         parent.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
@@ -108,7 +86,7 @@ public class Dashboard_userController implements Initializable {
             App.stage.setOpacity(1.0f);
         });
     }
-
+    
     private void makeMenuAnimation(MouseEvent event, boolean paneVisible, double secondsFade, double secondsTranslate, double fromValue, double toValue, double byX) {
         if (event == null && !paneVisible) {
             pane1menu.setVisible(paneVisible);
@@ -131,14 +109,14 @@ public class Dashboard_userController implements Initializable {
         translateTransition.setByX(byX);
         translateTransition.play();
     }
-
+    
     private void changeContentArea(Parent fxml) {
         if (!paneContentArea.getChildren().isEmpty()) {
             paneContentArea.getChildren().removeAll();
         }
         paneContentArea.getChildren().setAll(fxml);
     }
-
+    
     private void loadWelcome() {
         try {
             changeContentArea(Utilities.loadFXML("welcome"));
@@ -146,7 +124,23 @@ public class Dashboard_userController implements Initializable {
             ex.printStackTrace();
         }
     }
-
+    
+    public void loadListener(){
+        svListener = new SetViewListener () {
+            @Override
+            public void onClickListenerGoToView(String nameView){
+                try {
+                    //Aqui el codigo para cambiar de vista y pasar los datos al controlador de la vista de agregar o editar juegos
+                    changeContentArea(Utilities.loadFXML(nameView));
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            } 
+        };
+        
+        ListenerProvider.getListenerProvider().setStListener(svListener);
+    }
+    
     @FXML
     void closeMenu(MouseEvent event) {
         boolean paneVisible = pane1menu.isVisible();
@@ -163,10 +157,7 @@ public class Dashboard_userController implements Initializable {
 
     @FXML
     private void sing_off(MouseEvent event) throws IOException {
-        wsService.deleteWishList();
         userService.setUserInSession(null);
-        purchaseService.deletePurchase();
-        purchaseService.clearListPurchases();
         Utilities.changeScene(Utilities.loadFXML("login"), 800, 600);
     }
 
@@ -182,32 +173,20 @@ public class Dashboard_userController implements Initializable {
             pane2menu.setOpacity(0.8);
         }
     }
-
+    
     @FXML
-    private void openCatalogue(MouseEvent event) throws IOException {
-        changeContentArea(Utilities.loadFXML("catalogo_producos"));
+    private void addGame(MouseEvent event) throws IOException {
+        changeContentArea(Utilities.loadFXML("add_game"));
     }
-
+    
     @FXML
-    void openWishList(MouseEvent event) throws IOException {
-        changeContentArea(Utilities.loadFXML("wish_list"));
+    private void openGameManagement(MouseEvent event) throws IOException {
+        changeContentArea(Utilities.loadFXML("game_management"));
     }
-
-    @FXML
-    void openShoppingCart(MouseEvent event) throws IOException {
-        changeContentArea(Utilities.loadFXML("shopping_cart"));
-    }
-
-    @FXML
-    void openShoppingHistory(MouseEvent event) throws IOException {
-        changeContentArea(Utilities.loadFXML("shopping_history"));
-    }
-
+    
     @FXML
     void openUserAccount(MouseEvent event) throws IOException {
         changeContentArea(Utilities.loadFXML("user_account"));
     }
 
-    public void setUserLoggued(User user) {
-    }
 }
