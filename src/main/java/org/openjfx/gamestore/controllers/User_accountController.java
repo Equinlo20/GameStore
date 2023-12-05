@@ -57,10 +57,10 @@ public class User_accountController implements Initializable {
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         dateBirthTxtField.setValue(LocalDate.parse(this.user.getDateOfBirth(), dateFormat));
 
-        emailTxtField.setText(user.getEmail() == null? "" : user.getEmail());
+        emailTxtField.setText(user.getEmail() == null ? "" : user.getEmail());
         nameTxtField.setText(user.getName());
         passwordField.setText(user.getPassword());
-        phoneTxtField.setText(user.getPhone() == null? "" : user.getPhone());
+        phoneTxtField.setText(user.getPhone() == null ? "" : user.getPhone());
         usernameTxtField.setText(user.getUsername());
 
         disableFields(true);
@@ -104,20 +104,25 @@ public class User_accountController implements Initializable {
                 || dateBirth == null) {
             AlertUtils.showAlertError("You must fill out all fields.");
         } else {
-            boolean usernameIsValid = username.equals(this.user.getUsername())? true : !userService.usernameExists(username);
-            if (usernameIsValid) {
-                if (AlertUtils.getAndShowAlertConfirm("Do you want to make the changes?")) {
-                    User newUser = new User(name, username, password, dateBirth.format(dateFormat), phone, email, user.getType());
-                    if (userService.update(this.user, newUser)) {
-                        AlertUtils.showAlertInfo("User updated successfully");
-                        this.user = newUser;
+            if (phone.matches("[0-9]+")) {
+                boolean usernameIsValid = username.equals(this.user.getUsername()) ? true : !userService.usernameExists(username);
+                if (usernameIsValid) {
+                    if (AlertUtils.getAndShowAlertConfirm("Do you want to make the changes?")) {
+                        User newUser = new User(name, username, password, dateBirth.format(dateFormat), phone, email, user.getType());
+                        if (userService.update(this.user, newUser)) {
+                            AlertUtils.showAlertInfo("User updated successfully");
+                            this.user = newUser;
+                        }
                     }
-                }
-                init();
+                    init();
 
+                } else {
+                    AlertUtils.showAlertError("Username already exists, please choose a different username.");
+                }
             } else {
-                AlertUtils.showAlertError("Username already exists, please choose a different username.");
+                AlertUtils.showAlertError("Phone format is incorrect, use only numbers");
             }
+
         }
 
     }

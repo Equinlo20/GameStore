@@ -144,15 +144,25 @@ public class Edit_gameController implements Initializable {
 
             AlertUtils.showAlertError("You must fill out all fields or select an image.");
         } else {
+            if (priceGame.matches("[0-9]+|[0-9]+[.][0-9]+")) {
+                if (sugAgeGame.matches("[0-9]{1,2}[+]")) {
 
-            if (AlertUtils.getAndShowAlertConfirm("Do you want to make the changes?")) {
+                    if (AlertUtils.getAndShowAlertConfirm("Do you want to make the changes?")) {
 
-                if (gameService.update(new Game(game.getId(), nameGame, game.getImgSrc(), Double.parseDouble(priceGame), descriptionGame, typeGame, createByGame, sugAgeGame), fileSelected)) {
-                    AlertUtils.showAlertInfo("Changes made successfully");
+                        if (gameService.update(new Game(game.getId(), nameGame, game.getImgSrc(), Double.parseDouble(priceGame), descriptionGame, typeGame, createByGame, sugAgeGame), fileSelected)) {
+                            AlertUtils.showAlertInfo("Changes made successfully");
+                        }
+
+                    } else {
+                        resetFields();
+                    }
+
+                } else {
+                    AlertUtils.showAlertError("You must write a valid value in Suggested Age Field: For example: 12+");
                 }
 
             } else {
-                resetFields();
+                AlertUtils.showAlertError("You must write a valid value in Price Field");
             }
 
         }

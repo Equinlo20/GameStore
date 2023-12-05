@@ -75,7 +75,7 @@
                                     <Font name="Impact" size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="priceTxtField" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="290.0" promptText="Price" styleClass="text-field">
+                              <TextField fx:id="priceTxtField" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="290.0" promptText="Price format: 00000 or 00000.00" styleClass="text-field">
                                  <cursor>
                                     <Cursor fx:constant="TEXT" />
                                  </cursor>
@@ -167,7 +167,7 @@
                                     <Font name="Impact" size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="sugAgeTxtField" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="234.0" promptText="Suggested Age" styleClass="text-field">
+                              <TextField fx:id="sugAgeTxtField" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="234.0" promptText="Suggested Age format: 9+ or 12+" styleClass="text-field">
                                  <cursor>
                                     <Cursor fx:constant="TEXT" />
                                  </cursor>
