@@ -9,11 +9,11 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import org.openjfx.gamestore.models.domain.Purchase;
 
-
 public class Item_purchaseController implements Initializable {
-    
+
     @FXML
     private Label datePurchaseLabel;
 
@@ -27,9 +27,8 @@ public class Item_purchaseController implements Initializable {
     private Label totalPurchaseLabel;
     @FXML
     private Label numLabel;
-    
-    private Purchase purchase;
 
+    private Purchase purchase;
 
     /**
      * Initializes the controller class.
@@ -37,16 +36,20 @@ public class Item_purchaseController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }   
-    
-    public void setData(Purchase purchase, int num){
+    }
+
+    public void setData(Purchase purchase, int num) {
         this.purchase = purchase;
-        
+
         numLabel.setText(String.valueOf(num));
         datePurchaseLabel.setText(purchase.getDate());
         idPurchaseLabel.setText(String.valueOf(purchase.getId()));
         numItemsPurchaseLabel.setText(String.valueOf(purchase.getNumItems()));
-        totalPurchaseLabel.setText("$"+purchase.getTotal());
-    }  
-    
+        totalPurchaseLabel.setText("$" + purchase.getTotal());
+    }
+
+    @FXML
+    void goToViewPurchases(MouseEvent event) {
+
+    }
 }

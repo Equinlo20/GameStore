@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" prefHeight="654.4" prefWidth="905.6" spacing="20.0" styleClass="pane-center" stylesheets="@styles/view_purchase.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.gamestore.controllers.View_purchaseController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label id="labeltopcart1" alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="90.0" text="Purchase -" textFill="#828282">
+               <font>
+                  <Font name="Impact" size="18.0" />
+               </font>
+            </Label>
+            <Label id="labeltopcart1" alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="39.0" text="ID:" textFill="#828282">
+               <font>
+                  <Font name="Impact" size="18.0" />
+               </font>
+            </Label>
+            <Label id="labeltopcart1" contentDisplay="CENTER" prefHeight="39.0" prefWidth="82.0" text="0000000" textFill="#828282">
+               <font>
+                  <Font name="Ebrima" size="14.0" />
+               </font>
+            </Label>
+            <Label id="labeltopcart1" alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="45.0" text="Date:" textFill="#828282">
+               <font>
+                  <Font name="Impact" size="18.0" />
+               </font>
+            </Label>
+            <Label id="labeltopcart1" contentDisplay="CENTER" prefHeight="39.0" prefWidth="82.0" text="00/00/0000" textFill="#828282">
+               <font>
+                  <Font name="Ebrima" size="14.0" />
+               </font>
+            </Label>
+            <Label id="labeltopcart1" alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="93.0" text="NumItems:" textFill="#828282">
+               <font>
+                  <Font name="Impact" size="18.0" />
+               </font>
+            </Label>
+            <Label id="labeltopcart1" contentDisplay="CENTER" prefHeight="39.0" prefWidth="41.0" text="00" textFill="#828282">
+               <font>
+                  <Font name="Ebrima" size="14.0" />
+               </font>
+            </Label>
+            <Label id="labeltopcart1" alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="86.0" text="Total  paid:" textFill="#828282">
+               <font>
+                  <Font name="Impact" size="18.0" />
+               </font>
+            </Label>
+            <Label id="labeltopcart1" contentDisplay="CENTER" prefHeight="39.0" prefWidth="120.0" text="0000000" textFill="#828282">
+               <font>
+                  <Font name="Ebrima" size="14.0" />
+               </font>
+            </Label>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+      <HBox VBox.vgrow="ALWAYS">
+         <children>
+            <VBox styleClass="white-pane">
+               <children>
+                  <HBox prefHeight="58.0" prefWidth="802.0" spacing="10.0" style="-fx-background-color: #D3D3D3;">
+                     <children>
+                        <Label id="labeltopcart1" alignment="CENTER" prefHeight="39.0" prefWidth="34.0" text="#" textFill="#828282">
+                           <font>
+                              <Font name="Impact" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label id="labeltopcart1" alignment="CENTER" prefHeight="35.0" prefWidth="183.0" text="Item" textFill="#828282">
+                           <font>
+                              <Font name="Impact" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label id="labeltopcart1" prefHeight="35.0" prefWidth="198.0" text="Description" textFill="#828282">
+                           <font>
+                              <Font name="Impact" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label id="labeltopcart1" prefHeight="35.0" prefWidth="98.0" text="Price" textFill="#828282">
+                           <font>
+                              <Font name="Impact" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label id="labeltopcart1" prefHeight="35.0" prefWidth="65.0" text="Amount" textFill="#828282">
+                           <font>
+                              <Font name="Impact" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label id="labeltopcart1" prefHeight="35.0" prefWidth="140.0" text="Total" textFill="#828282">
+                           <font>
+                              <Font name="Impact" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <ScrollPane prefHeight="474.0" prefWidth="802.0" styleClass="white-pane" stylesheets="@styles/view_purchase.css">
+                     <content>
+                        <VBox fx:id="purchasePaneTable" prefHeight="472.0" prefWidth="802.0" styleClass="white-pane" stylesheets="@styles/view_purchase.css" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="30.0" left="50.0" right="50.0" top="30.0" />
+   </padding>
+</VBox>

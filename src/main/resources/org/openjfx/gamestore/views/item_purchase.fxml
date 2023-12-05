@@ -38,9 +38,9 @@
             <Font name="Ebrima" size="16.0" />
          </font>
       </Label>
-      <Button mnemonicParsing="false" styleClass="transparent">
+      <Button mnemonicParsing="false" onMouseClicked="#goToViewPurchases" styleClass="transparent">
          <graphic>
-            <FontAwesomeIconView glyphName="EYE" size="2em" styleClass="btn-view">
+            <FontAwesomeIconView glyphName="EYE" onMouseClicked="#goToViewPurchases" size="2em" styleClass="btn-view">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></FontAwesomeIconView>
