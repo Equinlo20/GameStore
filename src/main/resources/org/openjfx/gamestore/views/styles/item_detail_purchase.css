@@ -18,3 +18,11 @@
     -fx-background-color: rgba(0,0,0,0);
     
 }
+
+#descScrollPane{
+    -fx-background-color: transparent;
+}
+
+#descScrollPane > .viewport{
+    -fx-background-color: transparent;
+}

@@ -2,11 +2,13 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <HBox prefHeight="180.0" prefWidth="802.0" spacing="10.0" styleClass="pane-principal" stylesheets="@styles/item_detail_purchase.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.gamestore.controllers.Item_detail_purchaseController">
    <children>
@@ -32,17 +34,25 @@
             </ImageView>
          </children>
       </VBox>
-      <Label id="labeltopcart1" fx:id="descriptionGameLabel" alignment="CENTER" prefHeight="34.0" prefWidth="198.0" text="Game of type warjsdhjsdjsdhjsdjssds" textFill="#828282">
-         <font>
-            <Font name="Ebrima" size="14.0" />
-         </font>
-      </Label>
+      <ScrollPane id="descScrollPane" prefHeight="161.0" prefWidth="198.0" styleClass="info-pane">
+         <content>
+            <VBox minWidth="-Infinity" prefHeight="150.0" prefWidth="194.0">
+               <children>
+                  <Text fx:id="descriptionGameTxt" fill="#828282" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="info-pane" text="dffdf" wrappingWidth="189.33665466308594">
+                     <font>
+                        <Font name="Ebrima" size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
       <Label id="labeltopcart1" fx:id="priceGameLabel" prefHeight="35.0" prefWidth="98.0" text="\$500000" textFill="#828282">
          <font>
             <Font name="Ebrima" size="14.0" />
          </font>
       </Label>
-      <Label id="labeltopcart1" fx:id="priceGameLabel1" prefHeight="35.0" prefWidth="65.0" text="1" textFill="#828282">
+      <Label id="labeltopcart1" fx:id="amountGameLabel" prefHeight="35.0" prefWidth="65.0" text="1" textFill="#828282">
          <font>
             <Font name="Ebrima" size="14.0" />
          </font>

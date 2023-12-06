@@ -11,6 +11,8 @@ public class ListenerProvider {
     private SetViewListener stListener;
 
     private GoToViewGameListener gtvGameListener;
+    
+    private ViewPurchaseListener vPListener;
 
     private ListenerProvider() {
     }
@@ -33,6 +35,14 @@ public class ListenerProvider {
 
     public void setGtvGameListener(GoToViewGameListener gtvGameListener) {
         this.gtvGameListener = gtvGameListener;
+    }
+
+    public ViewPurchaseListener getvPListener() {
+        return vPListener;
+    }
+
+    public void setvPListener(ViewPurchaseListener vPListener) {
+        this.vPListener = vPListener;
     }
 
 }
