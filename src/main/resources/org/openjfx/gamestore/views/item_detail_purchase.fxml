@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox prefHeight="180.0" prefWidth="802.0" spacing="10.0" styleClass="pane-principal" stylesheets="@styles/item_detail_purchase.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.gamestore.controllers.Item_detail_purchaseController">
+   <children>
+      <Label id="labeltopcart1" fx:id="numItem" alignment="CENTER" prefHeight="39.0" prefWidth="34.0" text="1" textFill="#828282">
+         <font>
+            <Font name="Ebrima" size="14.0" />
+         </font>
+         <HBox.margin>
+            <Insets left="10.0" />
+         </HBox.margin>
+      </Label>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="183.0">
+         <children>
+            <Label id="labeltopcart1" fx:id="nameGameLabel" alignment="CENTER" prefHeight="30.0" prefWidth="180.0" text="Halo" textFill="#828282">
+               <font>
+                  <Font name="Ebrima" size="14.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="imageGame" fitHeight="150.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../images/game2.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <Label id="labeltopcart1" fx:id="descriptionGameLabel" alignment="CENTER" prefHeight="34.0" prefWidth="198.0" text="Game of type warjsdhjsdjsdhjsdjssds" textFill="#828282">
+         <font>
+            <Font name="Ebrima" size="14.0" />
+         </font>
+      </Label>
+      <Label id="labeltopcart1" fx:id="priceGameLabel" prefHeight="35.0" prefWidth="98.0" text="\$500000" textFill="#828282">
+         <font>
+            <Font name="Ebrima" size="14.0" />
+         </font>
+      </Label>
+      <Label id="labeltopcart1" fx:id="priceGameLabel1" prefHeight="35.0" prefWidth="65.0" text="1" textFill="#828282">
+         <font>
+            <Font name="Ebrima" size="14.0" />
+         </font>
+      </Label>
+      <Label id="labeltopcart1" fx:id="totalPriceItemLabel" prefHeight="35.0" prefWidth="140.0" text="\$500000" textFill="#828282">
+         <font>
+            <Font name="Ebrima" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</HBox>

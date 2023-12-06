@@ -1,0 +1,20 @@
+.pane-principal{
+    -fx-background-color:  #F7F7F7;
+}
+
+.pane-principal:hover{
+    -fx-background-color: #86e1ff;
+}
+
+.alternative-color{
+    -fx-background-color: white;
+}
+
+.alternative-color:hover{
+    -fx-background-color: #86e1ff;
+}
+
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+    
+}

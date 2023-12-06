@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import org.openjfx.gamestore.data.LList;
@@ -20,9 +21,15 @@ import org.openjfx.gamestore.models.service.PurchaseService;
 import org.openjfx.gamestore.utils.Utilities;
 
 public class Shopping_historyController implements Initializable {
+    
+    @FXML
+    private BorderPane borderPane;
 
     @FXML
     private Label numPurchasesLabel;
+    
+    @FXML
+    private VBox paneCenterInitVbox;
     
     @FXML
     private VBox purchasePaneTable;
