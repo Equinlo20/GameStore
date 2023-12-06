@@ -18,9 +18,13 @@ import org.openjfx.gamestore.data.LList;
 import org.openjfx.gamestore.models.domain.Purchase;
 import org.openjfx.gamestore.models.service.IPurchaseService;
 import org.openjfx.gamestore.models.service.PurchaseService;
+import org.openjfx.gamestore.utils.ListenerProvider;
 import org.openjfx.gamestore.utils.Utilities;
+import org.openjfx.gamestore.utils.ViewPurchaseListener;
 
 public class Shopping_historyController implements Initializable {
+    
+    private ViewPurchaseListener vPListener;
     
     @FXML
     private BorderPane borderPane;
@@ -38,6 +42,7 @@ public class Shopping_historyController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        loadListeners();
         loadPurchases();
     }
 
@@ -67,6 +72,36 @@ public class Shopping_historyController implements Initializable {
         }
         
         numPurchasesLabel.setText(purchases.getSize() + " PURCHASES");
+    }
+    
+    private void loadListeners(){
+        this.vPListener = new ViewPurchaseListener(){
+            @Override
+            public void onClickListenerGoView(Purchase purchase,String nameView){
+                if (purchase != null) {
+                    try {
+                            FXMLLoader fxmlLoader = new FXMLLoader();
+                            fxmlLoader.setLocation(Utilities.getUrlFxmlResource(nameView));
+
+                            VBox vBox = fxmlLoader.load();
+
+                            View_purchaseController vpC = fxmlLoader.getController();
+                            vpC.setData(purchase);
+
+                            changeContentCenterPanel(vBox);
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+                }else{
+                    changeContentCenterPanel(paneCenterInitVbox);
+                }
+            }
+        };
+        ListenerProvider.getListenerProvider().setvPListener(vPListener);
+    }
+    
+    private void changeContentCenterPanel(VBox paneCenter) {
+        this.borderPane.setCenter(paneCenter);
     }
 
 }

@@ -40,7 +40,6 @@ public class Item_detail_purchaseController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // hola
     }    
     
 }

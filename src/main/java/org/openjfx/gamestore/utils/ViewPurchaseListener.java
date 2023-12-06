@@ -7,5 +7,5 @@ package org.openjfx.gamestore.utils;
 import org.openjfx.gamestore.models.domain.Purchase;
 
 public interface ViewPurchaseListener {
-    public void onClickListenerGoView(Purchase game,String nameView);
+    public void onClickListenerGoView(Purchase purchase,String nameView);
 }

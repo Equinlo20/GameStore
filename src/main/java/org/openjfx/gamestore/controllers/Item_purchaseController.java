@@ -11,6 +11,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import org.openjfx.gamestore.models.domain.Purchase;
+import org.openjfx.gamestore.utils.ListenerProvider;
+import org.openjfx.gamestore.utils.ViewPurchaseListener;
 
 public class Item_purchaseController implements Initializable {
 
@@ -29,13 +31,15 @@ public class Item_purchaseController implements Initializable {
     private Label numLabel;
 
     private Purchase purchase;
+    
+    private ViewPurchaseListener vPListener;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        this.vPListener = ListenerProvider.getListenerProvider().getvPListener();
     }
 
     public void setData(Purchase purchase, int num) {
@@ -50,6 +54,6 @@ public class Item_purchaseController implements Initializable {
 
     @FXML
     void goToViewPurchases(MouseEvent event) {
-
+        this.vPListener.onClickListenerGoView(purchase, "view_purchase");
     }
 }
