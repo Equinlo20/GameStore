@@ -1,5 +1,0 @@
-55363;24/11/2023;100006;Farcry;/images/game6.jpg;49990.0;Clasic and strategy game of war;War;Ubisoft;13+;3
-55363;24/11/2023;100002;Metal Gear Solid 3;/images/game1.jpg;65300.0;Tactical and espionage game;War;SONY;15+;1
-51187;25/11/2023;100002;Metal Gear Solid 3;/images/game1.jpg;65300.0;Tactical and espionage game;War;SONY;15+;1
-31368;25/11/2023;100007;Destiny;/images/game7.jpg;78500.0;Modern and strategy game of war;War;ACTIVISION;13+;2
-31368;25/11/2023;100006;Farcry;/images/game6.jpg;49990.0;Clasic and strategy game of war;War;Ubisoft;13+;1
